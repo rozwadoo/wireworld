@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LeftPanel extends JPanel implements ActionListener {
+public class LeftPanel extends JPanel {
 
     JLabel napisWprowadzPlik = new JLabel("Wprowadź nazwę pliku");
     JLabel napisWprowadzIteracje = new JLabel("Wprowadź liczbę iteracji");
@@ -18,21 +18,21 @@ public class LeftPanel extends JPanel implements ActionListener {
     JLabel odstep = new JLabel();
     JButton run = new JButton("START");
 
-    public String nazwaPliku;
+    /*public String nazwaPliku;
     public int numerIteracji;
     public boolean start = false;
-
+*/
     LeftPanel(){
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
 
         layout.setAutoCreateGaps(true);
         layout.setAutoCreateContainerGaps(true);
-
+/*
         zatwierdzIteracje.addActionListener(this);
         zatwierdzNazwePliku.addActionListener(this);
         run.addActionListener(this);
-
+*/
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
                         .addComponent(napisWprowadzPlik,50,50,50)
@@ -60,7 +60,7 @@ public class LeftPanel extends JPanel implements ActionListener {
                         )
         );
     }
-
+/*
     public String getNazwaPliku() {
         return nazwaPliku;
     }
@@ -81,5 +81,5 @@ public class LeftPanel extends JPanel implements ActionListener {
         if(source == run){
             start = true;
         }
-    }
+    }*/
 }

@@ -36,11 +36,12 @@ public class Frame extends JFrame {
             }
         }
     }
-
+/*
     public void dateIn(){
         while(lewy.start == false){
             ;
         }
         System.out.println("q");
     }
+*/
 }

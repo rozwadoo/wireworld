@@ -5,7 +5,7 @@ import Graphic.Frame;
 import java.io.IOException;
 
 public class main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Frame ramka = new Frame();
         map m = new map();
@@ -16,13 +16,17 @@ public class main {
             System.err.println( "Linia: "+e.getMessage());
         }
 
-
+        ramka.takeMap(m.getmToInt());
+        ramka.update();
 
         int it = Integer.parseInt(args[1]);
 
         for (int i = 0; i <= 5; ++i) {
+            Thread.sleep(550);
             m.getBoard().forEach((k,v) -> v.generate());
             m.getBoard().forEach((k,v) -> v.update());
+            ramka.takeMap(m.getmToInt());
+            ramka.update();
         }
 
         System.out.println("col" + m.getColumn());
@@ -41,4 +45,5 @@ public class main {
         for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(147).getN(i).getPosition());
         for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(48).getN(i).getPosition());*/
     }
+
 }
