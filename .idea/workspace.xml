@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Dodanie klas, prototyp. cd" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1sQoAgR60vEGAVZvfipUFHdyOq5" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Y700\IdeaProjects\wireworld\.idea" />
+      <recent name="C:\Users\Y700\IdeaProjects\wireworld\.idea\codeStyles" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.main">
+    <configuration default="true" type="Application" factoryName="Application">
+      <module name="wireworld" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Y700\Desktop\pw\2\jimp2\labs" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mapa.main" />
+      <module name="wireworld" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Y700\Desktop\pw\2\jimp2\labs\diody.txt 10" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="ScalaAmmoniteRunConfigurationType" factoryName="Ammonite">
+      <setting name="execName" value="amm" />
+      <setting name="fileName" value="" />
+      <setting name="scriptParameters" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Ammonite.Unnamed" />
+      <item itemvalue="Application.main" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="" />
+      <created>1620814033260</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620814033260</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Dodanie klas, prototyp.">
+      <created>1620851236238</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620851236238</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Dodanie klas, prototyp. cd">
+      <created>1620852980571</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620852980571</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Dodanie klas, prototyp." />
+    <MESSAGE value="Dodanie klas, prototyp. cd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie klas, prototyp. cd" />
+  </component>
+</project>
