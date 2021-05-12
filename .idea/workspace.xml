@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Dodanie grafiki, jeszcze nie działa, commit potrzebny do pobrania testów">
-      <change afterPath="$PROJECT_DIR$/src/Graphic/Frame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Graphic/LeftPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Graphic/RightPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Dodanie klas, prototyp. cd2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/cell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/diodeNormal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/diodeNormal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/structure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/structure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/map.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,11 +20,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -61,12 +45,6 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
@@ -86,18 +64,7 @@
     <configuration name="main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mapa.main" />
       <module name="wireworld" />
-      <option name="PROGRAM_PARAMETERS" value="C:\Users\wyluk\IdeaProjects\wireworldXD\dane.txt 10" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Y700\Desktop\pw\2\jimp2\labs\diody.txt 10" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,6 +76,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Ammonite.Unnamed" />
       <item itemvalue="Application.main" />
     </list>
   </component>
@@ -120,7 +88,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1620814033260</updated>
-      <workItem from="1620857410427" duration="2334000" />
     </task>
     <task id="LOCAL-00001" summary="Dodanie klas, prototyp.">
       <created>1620851236238</created>
@@ -136,14 +103,15 @@
       <option name="project" value="LOCAL" />
       <updated>1620852980571</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Dodanie klas, prototyp. cd2">
+      <created>1620857139188</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1620857139188</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="com.intellij.configurationType" implementationName="ScalaAmmoniteRunConfigurationType" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -155,12 +123,11 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Dodanie klas, prototyp." />
     <MESSAGE value="Dodanie klas, prototyp. cd" />
-    <MESSAGE value="Dodanie grafiki, jeszcze nie działa, commit potrzebny do pobrania testów" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodanie grafiki, jeszcze nie działa, commit potrzebny do pobrania testów" />
+    <MESSAGE value="Dodanie klas, prototyp. cd2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie klas, prototyp. cd2" />
   </component>
 </project>
