@@ -11,7 +11,6 @@ public class map {
     private static TreeMap<Integer, cell> board = new TreeMap<>();
 
     public map(){
-
     }
     public int getRow() {
         return row;
@@ -82,8 +81,9 @@ public class map {
                 System.err.println( "Linia: \"" + line + "\" jest błędna ("+e.getMessage()+") i została pominięta");
             }
         }
-
     }
+
+
     public static void save( String d){
         try {
             File myObj = new File(d);
