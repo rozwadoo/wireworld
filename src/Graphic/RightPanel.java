@@ -24,13 +24,13 @@ public class RightPanel extends JPanel {
     }
 
     public void update(int x, int i, int j){
-        if(x == 0)panel[i][j].setBackground(Color.BLUE);
+        if(x == 1)panel[i][j].setBackground(Color.BLUE);
         else
-        if(x == 1)panel[i][j].setBackground(new Color(255,102,0));
+        if(x == 2)panel[i][j].setBackground(new Color(255,102,0));
         else
-        if(x == 2)panel[i][j].setBackground(Color.yellow);
+        if(x == 3)panel[i][j].setBackground(Color.yellow);
         else
-        if(x == 3)panel[i][j].setBackground(Color.BLACK);
+        if(x == 0)panel[i][j].setBackground(Color.BLACK);
     }
 
     public int getRowsColws()

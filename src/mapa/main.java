@@ -10,6 +10,9 @@ public class main {
         Frame ramka = new Frame();
         map m = new map();
 
+        args[0] = "test\\diode1";
+        args[1] = "10";
+
         try {
             m.read(args[0]);
         } catch( IOException e) {

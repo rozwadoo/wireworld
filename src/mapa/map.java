@@ -9,7 +9,7 @@ public class map {
     private int row;
     private int column;
     private static TreeMap<Integer, cell> board = new TreeMap<>();
-    private int[][] mToInt = new int[column][row];
+    private int[][] mToInt = new int[50][ 50];
 
 
     public map(){
@@ -112,14 +112,15 @@ public class map {
 
     public int[][] getmToInt(){
         for(int i = 1; i < column*row+1; ++i){
-            if(i/row == 0){
+            if(i%row == 0){
                 mToInt[i/row][row] = board.get(i).getState0();
             }
             else
             {
                 mToInt[i/row + 1][i % row] = board.get(i).getState0();
             }
-        }return getmToInt();
+        }
+        return mToInt;
     }
 
 

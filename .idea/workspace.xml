@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Dodanie grafiki, jeszcze nie działa, commit potrzebny do pobrania testów">
+    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Grafika powinna działać cd(pliki out)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/RightPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/Graphic/RightPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/LeftPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/LeftPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphic/RightPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/RightPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mapa/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mapa/map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/map.java" afterDir="false" />
     </list>
@@ -51,6 +51,9 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
@@ -59,7 +62,7 @@
       <recent name="C:\Users\Y700\IdeaProjects\wireworld\.idea\codeStyles" />
     </key>
   </component>
-  <component name="RunManager" selected="Unknown.Unnamed156922946">
+  <component name="RunManager" selected="Application.main">
     <configuration default="true" type="Application" factoryName="Application">
       <module name="wireworld" />
       <option name="PROGRAM_PARAMETERS" value="C:\Users\Y700\Desktop\pw\2\jimp2\labs" />
@@ -72,17 +75,6 @@
       <module name="wireworld" />
       <option name="PROGRAM_PARAMETERS" value="test\diode1 10" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -105,6 +97,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1620814033260</updated>
+      <workItem from="1620883250370" duration="1116000" />
     </task>
     <task id="LOCAL-00001" summary="Dodanie klas, prototyp.">
       <created>1620851236238</created>
@@ -127,8 +120,25 @@
       <option name="project" value="LOCAL" />
       <updated>1620857139188</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Grafika powinna działać">
+      <created>1620861471275</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1620861471275</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Grafika powinna działać cd(pliki out)">
+      <created>1620861494416</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1620861494416</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -146,6 +156,8 @@
     <MESSAGE value="Dodanie klas, prototyp." />
     <MESSAGE value="Dodanie klas, prototyp. cd" />
     <MESSAGE value="Dodanie klas, prototyp. cd2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodanie klas, prototyp. cd2" />
+    <MESSAGE value="Grafika powinna działać" />
+    <MESSAGE value="Grafika powinna działać cd(pliki out)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Grafika powinna działać cd(pliki out)" />
   </component>
 </project>
