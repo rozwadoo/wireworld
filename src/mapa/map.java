@@ -9,9 +9,10 @@ public class map {
     private int row;
     private int column;
     private static TreeMap<Integer, cell> board = new TreeMap<>();
+    private int[][] mToInt = new int[50][ 50];
+
 
     public map(){
-
     }
     public int getRow() {
         return row;
@@ -82,8 +83,9 @@ public class map {
                 System.err.println( "Linia: \"" + line + "\" jest błędna ("+e.getMessage()+") i została pominięta");
             }
         }
-
     }
+
+
     public static void save( String d){
         try {
             File myObj = new File(d);
@@ -107,5 +109,19 @@ public class map {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }*/
+
+    public int[][] getmToInt(){
+        for(int i = 1; i < column*row+1; ++i){
+            if(i%row == 0){
+                mToInt[i/row][row] = board.get(i).getState0();
+            }
+            else
+            {
+                mToInt[i/row + 1][i % row] = board.get(i).getState0();
+            }
+        }
+        return mToInt;
+    }
+
 
 }
