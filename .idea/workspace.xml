@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Grafika powinna działać cd(pliki out)">
+    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/RightPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/Graphic/RightPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/diodeNormal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/diodeNormal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/RightPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/RightPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/structure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/structure.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/diodeNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/diodeNormal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mapa/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mapa/map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/structure.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +28,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Grafika" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -53,16 +60,20 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Y700\IdeaProjects\wireworld\test" />
       <recent name="C:\Users\Y700\IdeaProjects\wireworld\.idea" />
       <recent name="C:\Users\Y700\IdeaProjects\wireworld\.idea\codeStyles" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.main">
+  <component name="RunManager" selected="Application.default">
     <configuration default="true" type="Application" factoryName="Application">
       <module name="wireworld" />
       <option name="PROGRAM_PARAMETERS" value="C:\Users\Y700\Desktop\pw\2\jimp2\labs" />
@@ -70,10 +81,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" nameIsGenerated="true">
+    <configuration name="default" type="Application" factoryName="Application" activateToolWindowBeforeRun="false">
       <option name="MAIN_CLASS_NAME" value="mapa.main" />
       <module name="wireworld" />
-      <option name="PROGRAM_PARAMETERS" value="test\diode1 10" />
+      <option name="PROGRAM_PARAMETERS" value="test\output.txt 10" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -86,7 +97,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.main" />
+      <item itemvalue="Ammonite.Unnamed" />
+      <item itemvalue="Application.default" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
