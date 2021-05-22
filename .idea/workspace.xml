@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="test">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/diodeNormal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/diodeNormal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/structure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/structure.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mapa/diodeNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/diodeNormal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/map.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mapa/structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/structure.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +19,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="algorithm" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">

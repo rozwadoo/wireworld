@@ -23,7 +23,7 @@ public class diodeNormal extends structure{
         make(s+20+auxc, m);
         make(s+21+auxc, m);
     }
-    public diodeNormal(int s, map m, File f) throws IOException {
+    public diodeNormal(int s, map m, File f, String fname) throws IOException {
         setRow(7);
         setColumn(14);
         int auxc = m.getColumn() - 14;
@@ -40,6 +40,6 @@ public class diodeNormal extends structure{
         make(s-7-auxc, m);
         make(s+20+auxc, m);
         make(s+21+auxc, m);
-        this.addToFile(f, m, getName(), s);
+        this.addToFile(f, m, s, fname);
     }
 }

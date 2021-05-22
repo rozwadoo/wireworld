@@ -19,7 +19,7 @@ public class structure extends map{
         getBoard().get(n).setState0(3);
         getBoard().get(n).giveN(m);
     }
-    public void addToFile(java.io.File f, map m, String name, int s) throws IOException {
+    public void addToFile(java.io.File f, map m, int s, String fname) throws IOException {
         BufferedReader r = new BufferedReader( new FileReader(f));
         java.io.File file = new java.io.File("tmp.txt");
         file.createNewFile();
@@ -52,12 +52,22 @@ public class structure extends map{
             c = m.getColumn() - 1;
             ro = s / m.getColumn() - 1;
         }
-        bw.write(name + ": " + c + ", " + ro + "\n");
+        bw.write(this.getName() + ": " + c + ", " + ro + "\n");
+        for(int i = 1; i < m.getColumn()*m.getRow()+1; ++i) {
+            switch (m.getBoard().get(i).getState0()) {
+                case 1:
+                    bw.write("ElectronHead" + ": " + c + ", " + ro + "\n");
+                    break;
+                case 2:
+                    bw.write("ElectronTail" + ": " + c + ", " + ro + "\n");
+                    break;
+            }
+        }
         r.close();
         bw.flush();
         bw.close();
         f.delete();
-        Files.copy(Paths.get("tmp.txt"), Paths.get("output.txt"));
+        Files.copy(Paths.get("tmp.txt"), Paths.get(fname));
     }
 
     public String getName() {
