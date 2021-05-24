@@ -3,14 +3,12 @@ package mapa;
 import Graphic.Frame;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
-public class main {
+public class Main {
     public static void main(String[] args) throws InterruptedException, IOException {
         Frame ramka = new Frame();
-        map m = new map();
+        Map m = new Map();
 
 
         try {
@@ -19,7 +17,6 @@ public class main {
         } catch( IOException e) {
             System.err.println(e.getMessage());
         }
-
         ramka.takeMap(m.getmToInt());
         ramka.update();
 
@@ -31,12 +28,11 @@ public class main {
             ramka.takeMap(m.getmToInt());
             ramka.update();
         }
-
-       // System.out.println("col" + m.getColumn());
-        //System.out.println("row" + m.getRow());
+        System.out.println("col" + m.getColumn());
+        System.out.println("row" + m.getRow());
         //System.out.println("b" + m.getBoard().get(43).getState0() + " ");
-        //File file=new File("test/diode1");
-        File file=new File("test/output.txt");
+        File file=new File("test/diode1");
+        //File file=new File("test/output.txt");
         m.save(file,"test/output1.txt" );
 
         for (int j = 0; j <13; ++j) {
@@ -61,7 +57,7 @@ public class main {
             System.out.println("\n");
         }*/
 
-        //for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(133).getN(i).getPosition());
+        for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(16).getN(i).getPosition());
         //for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(147).getN(i).getPosition());
        //for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(48).getN(i).getPosition());
         ///int q = m.getColumn()*(m.getRow()-1);

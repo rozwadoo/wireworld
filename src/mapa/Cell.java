@@ -1,6 +1,6 @@
 package mapa;
 
-public class cell {
+public class Cell {
     private int state0;
     private int state1;
     private int position;
@@ -9,13 +9,13 @@ public class cell {
         2 - tail
         3 - conductor
      */
-    private cell [] neighbours;
+    private Cell[] neighbours;
 
-    public cell( int s0, int p ) {
+    public Cell(int s0, int p ) {
         setState0(s0);
         setPosition(p);
-        neighbours = new cell [8];
-        map.getBoard().put(position, this);
+        setNeighbours(new Cell[8]);
+        Map.getBoard().put(position, this);
     }
 
 
@@ -43,14 +43,14 @@ public class cell {
         this.position = position;
     }
 
-    public cell getN(int n) {
-        return neighbours[n];
+    public Cell getN(int n) {
+        return getNeighbours()[n];
     }
 
-    public void addN(int n, cell c) {
-            neighbours[n] = c;
+    public void addN(int n, Cell c) {
+            getNeighbours()[n] = c;
     }
-    public void giveN(map m) {
+    public void giveN(Map m) {
         for(int i = 0; i < 8; ++i) addN(i, m.getBoard().get(1));
         if(getPosition() > m.getColumn() && getPosition() % m.getColumn() != 1) addN(0, m.getBoard().get(this.getPosition()-m.getColumn()-1));
         if(getPosition() > m.getColumn()) addN(1, m.getBoard().get(this.getPosition()-m.getColumn()));
@@ -65,7 +65,7 @@ public class cell {
     public int count(){
         int s = 0;
         for (int i = 0; i < 8; ++i) {
-            if (neighbours[i].getState0() == 1) s += 1;
+            if (getNeighbours()[i].getState0() == 1) s += 1;
         }
         return s;
     }
@@ -79,7 +79,15 @@ public class cell {
     public void update(){
         setState0(this.state1);
     }
-    public boolean equals( cell c ) {
+    public boolean equals( Cell c ) {
         return c.getPosition() == this.getPosition();
+    }
+
+    public Cell[] getNeighbours() {
+        return neighbours;
+    }
+
+    public void setNeighbours(Cell[] neighbours) {
+        this.neighbours = neighbours;
     }
 }

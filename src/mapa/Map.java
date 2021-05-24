@@ -1,20 +1,19 @@
 package mapa;
 
 import java.io.*;
-import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.TreeMap;
 
-public class map {
+public class Map {
     private int row;
     private int column;
-    private static TreeMap<Integer, cell> board = new TreeMap<>();
+    private static TreeMap<Integer, Cell> board = new TreeMap<>();
     private int[][] mToInt = new int[50][ 50];
 
 
-    public map(){
+    public Map(){
     }
     public int getRow() {
         return row;
@@ -32,11 +31,11 @@ public class map {
         this.column = column;
     }
 
-    public static TreeMap<Integer, cell> getBoard() {
+    public static TreeMap<Integer, Cell> getBoard() {
         return board;
     }
 
-    public void setBoard(TreeMap<Integer, cell> board) {
+    public void setBoard(TreeMap<Integer, Cell> board) {
         this.board = board;
     }
     public void iterate(){
@@ -55,9 +54,14 @@ public class map {
             try {
                 switch (p[0].trim()) {
                     case "Diode":
+                    case "ORGate":
                         col = Math.max(col, Integer.parseInt(p[1].trim()) + 14);
                         row = Math.max(row, Integer.parseInt(p[2].trim()) + 4);
                         break;
+                    case "ElectronHead":
+                    case "ElectronTail":
+                        col = Math.max(col, Integer.parseInt(p[1].trim()) + 1);
+                        row = Math.max(row, Integer.parseInt(p[2].trim()) + 1);
                 }
             } catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
                 System.err.println("Linia: \"" + line + e.getMessage());
@@ -69,26 +73,46 @@ public class map {
     public void read( String path)
             throws IOException, FileNotFoundException {
         for(int i = 1; i < this.getColumn()*this.getRow()+1; ++i){
-            getBoard().put(i, new cell( 0, i));
+            getBoard().put(i, new Cell( 0, i));
         }
         BufferedReader re = new BufferedReader( new FileReader(path));
         String line;
         while( (line= re.readLine()) != null ) {
             String [] p = line.split(":|\\,\\s*");
             try {
-                map n;
+                Map n;
                 switch (p[0].trim()){
                     case "Diode":
-                        n = new diodeNormal(Integer.parseInt(p[1].trim())+1+ (Integer.parseInt(p[2].trim())*this.getColumn()), this);
+                        if(p[3].trim().equals("Normal")) {
+                            n = new DiodeNormal(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this);
+                        }
+                        else if(p[3].trim().equals("Reversed")){
+                            n = new DiodeReversed(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this);
+                        }
+                        else break;
+                        for(int cl : n.board.keySet()) {
+                            if (n.board.get(cl).getState0() == 3) getBoard().get(cl).setState0(3);
+                        }
+                        break;
+                    case "ORGate":
+                        if(p[3].trim().equals("Normal")) {
+                            n = new ORGate(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, "Normal");
+                        }
+                        else if(p[3].trim().equals("Reversed")) {
+                            n = new ORGate(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, "Reversed");
+                        }
+                        else break;
                         for(int cl : n.board.keySet()) {
                             if (n.board.get(cl).getState0() == 3) getBoard().get(cl).setState0(3);
                         }
                         break;
                     case "ElectronHead":
                         getBoard().get(Integer.parseInt(p[1].trim())+1+ Integer.parseInt(p[2].trim())*14).setState0(1);
+                        getBoard().get(Integer.parseInt(p[1].trim())+1+ Integer.parseInt(p[2].trim())*14).giveN(this);
                         break;
                     case "ElectronTail":
                         getBoard().get(Integer.parseInt(p[1].trim())+1+ Integer.parseInt(p[2].trim())*14).setState0(2);
+                        getBoard().get(Integer.parseInt(p[1].trim())+1+ Integer.parseInt(p[2].trim())*14).giveN(this);
                         break;
                 }
             } catch( ArrayIndexOutOfBoundsException|NumberFormatException e) {
