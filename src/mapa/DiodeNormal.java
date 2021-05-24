@@ -3,14 +3,15 @@ package mapa;
 import java.io.File;
 import java.io.IOException;
 
-public class diodeNormal extends structure{
-    public diodeNormal( int s, map m){
+public class DiodeNormal extends Structure {
+    public DiodeNormal(int s, Map m){
         setRow(7);
         setColumn(14);
         setName("Diode");
+        setLname("Normal");
         int auxc = m.getColumn() - 14;
         for(int i = s-m.getColumn()*3; i < s+m.getColumn()*4; ++i){
-            getBoard().put(i, new cell( 0, i));
+            getBoard().put(i, new Cell( 0, i));
         }
         for(int i = s; i < s+7; ++i){
             make(i, m);
@@ -23,12 +24,14 @@ public class diodeNormal extends structure{
         make(s+20+auxc, m);
         make(s+21+auxc, m);
     }
-    public diodeNormal(int s, map m, File f, String fname) throws IOException {
+    public DiodeNormal(int s, Map m, File f) throws IOException {
         setRow(7);
         setColumn(14);
+        setName("Diode");
+        setLname("Normal");
         int auxc = m.getColumn() - 14;
         for(int i = s-m.getColumn()*3; i < s+m.getColumn()*4; ++i){
-            getBoard().put(i, new cell( 0, i));
+            getBoard().put(i, new Cell( 0, i));
         }
         for(int i = s; i < s+7; ++i){
             make(i, m);
@@ -40,6 +43,6 @@ public class diodeNormal extends structure{
         make(s-7-auxc, m);
         make(s+20+auxc, m);
         make(s+21+auxc, m);
-        this.addToFile(f, m, s, fname);
+        this.addToFile(f, m, s);
     }
 }

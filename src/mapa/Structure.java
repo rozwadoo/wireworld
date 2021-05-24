@@ -4,9 +4,10 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class structure extends map{
+public class Structure extends Map {
     private int start;
     private String name;
+    private String lname;
 
     public int getStart() {
         return start;
@@ -15,11 +16,11 @@ public class structure extends map{
     public void setStart(int start) {
         this.start = start;
     }
-    public void make(int n, map m){
+    public void make(int n, Map m){
         getBoard().get(n).setState0(3);
         getBoard().get(n).giveN(m);
     }
-    public void addToFile(java.io.File f, map m, int s, String fname) throws IOException {
+    public void addToFile(java.io.File f, Map m, int s) throws IOException {
         BufferedReader r = new BufferedReader( new FileReader(f));
         java.io.File file = new java.io.File("tmp.txt");
         file.createNewFile();
@@ -52,22 +53,19 @@ public class structure extends map{
             c = m.getColumn() - 1;
             ro = s / m.getColumn() - 1;
         }
-        bw.write(this.getName() + ": " + c + ", " + ro + "\n");
-        for(int i = 1; i < m.getColumn()*m.getRow()+1; ++i) {
-            switch (m.getBoard().get(i).getState0()) {
-                case 1:
-                    bw.write("ElectronHead" + ": " + c + ", " + ro + "\n");
-                    break;
-                case 2:
-                    bw.write("ElectronTail" + ": " + c + ", " + ro + "\n");
-                    break;
-            }
+        switch(getLname()) {
+            case "Empty":
+                bw.write(name + ": " + c + ", " + ro + "\n");
+                break;
+            default:
+                bw.write(getName() + ": " + c + ", " + ro + ", " + getLname() +"\n");
+                break;
         }
         r.close();
         bw.flush();
         bw.close();
         f.delete();
-        Files.copy(Paths.get("tmp.txt"), Paths.get(fname));
+        Files.copy(Paths.get("tmp.txt"), Paths.get("output.txt"));
     }
 
     public String getName() {
@@ -76,5 +74,13 @@ public class structure extends map{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
     }
 }

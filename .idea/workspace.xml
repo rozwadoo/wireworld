@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="test">
-      <change beforePath="$PROJECT_DIR$/src/mapa/diodeNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/diodeNormal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/structure.java" afterDir="false" />
+    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="poprawa addToFile">
+      <change afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/DiodeReversed.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/ORGate.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mapa/DiodeReversed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mapa/ORGate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/diodeNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/DiodeNormal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Structure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/diode1" beforeDir="false" afterPath="$PROJECT_DIR$/test/diode1" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Grafika" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -78,9 +90,9 @@
       </method>
     </configuration>
     <configuration name="default" type="Application" factoryName="Application" activateToolWindowBeforeRun="false">
-      <option name="MAIN_CLASS_NAME" value="mapa.main" />
+      <option name="MAIN_CLASS_NAME" value="mapa.Main" />
       <module name="wireworld" />
-      <option name="PROGRAM_PARAMETERS" value="test\output.txt 10" />
+      <option name="PROGRAM_PARAMETERS" value="test\diode1 10" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -142,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620861494416</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="dodane struktury">
+      <created>1621894265024</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1621894265024</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +185,7 @@
     <MESSAGE value="Dodanie klas, prototyp. cd2" />
     <MESSAGE value="Grafika powinna działać" />
     <MESSAGE value="Grafika powinna działać cd(pliki out)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Grafika powinna działać cd(pliki out)" />
+    <MESSAGE value="dodane struktury" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodane struktury" />
   </component>
 </project>
