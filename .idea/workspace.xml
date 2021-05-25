@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="poprawa addToFile">
+    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="dodane struktury">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/cell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/diodeNormal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/diodeNormal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/DiodeReversed.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/ORGate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/ORGate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/diodeNormal.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/structure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/structure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/diodeNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/DiodeNormal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Structure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/DiodeNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Diode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/DiodeReversed.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/ORGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/ORGate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/diode1" beforeDir="false" afterPath="$PROJECT_DIR$/test/diode1" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
