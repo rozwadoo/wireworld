@@ -1,7 +1,7 @@
-ORGate: 0, 3, Normal
-ORGate: 0, 9, Reversed
-ElectronTail: 11, 3
-ElectronHead: 12, 3
-ElectronTail: 13, 7
-ElectronHead: 12, 7
+FlipFlop: 1, 5, Normal
+FlipFlop: 0, 13, Reversed
+
+
+
+
 

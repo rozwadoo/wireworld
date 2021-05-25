@@ -28,16 +28,16 @@ public class Main {
             ramka.takeMap(m.getmToInt());
             ramka.update();
         }
-        System.out.println("col" + m.getColumn());
-        System.out.println("row" + m.getRow());
+        //System.out.println("col" + m.getColumn());
+        //System.out.println("row" + m.getRow());
         //System.out.println("b" + m.getBoard().get(43).getState0() + " ");
         File file=new File("test/diode1");
         //File file=new File("test/output.txt");
         m.save(file,"test/output1.txt" );
-
-        for (int j = 0; j <13; ++j) {
-            for (int i = 1; i <= 14; ++i) {
-                System.out.printf("%d ", m.getBoard().get(i + j * 14).getState0());
+        int [][] v = m.translate();
+        for (int j = 0; j < m.getRow(); ++j) {
+            for (int i = 0; i < m.getColumn(); ++i) {
+                System.out.printf("%d ", v[j][i]);
             }
             System.out.println("\n");
         }
@@ -57,7 +57,7 @@ public class Main {
             System.out.println("\n");
         }*/
 
-        for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(16).getN(i).getPosition());
+        //for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(16).getN(i).getPosition());
         //for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(147).getN(i).getPosition());
        //for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(48).getN(i).getPosition());
         ///int q = m.getColumn()*(m.getRow()-1);
