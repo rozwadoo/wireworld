@@ -12,6 +12,8 @@ public class Board extends JPanel{
     protected SingleCell [][] panel = new SingleCell[50][50];
     private int rowsColws = 30;
     private RightPanel previous;
+    private int i;
+    private int j;
 
 
     Board(BoardSetting board){
