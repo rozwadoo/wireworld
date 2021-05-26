@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="dodane struktury">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Pewien błąd przy commicie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/Graphic/Frame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/LeftPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/Graphic/LeftPanel.class" afterDir="false" />
@@ -10,11 +9,9 @@
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphic/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphic/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Interface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphic/LeftPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/LeftPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/RightPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/RightPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/diode1" beforeDir="false" afterPath="$PROJECT_DIR$/test/diode1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/output1.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +142,7 @@
       <updated>1620814033260</updated>
       <workItem from="1620883250370" duration="1116000" />
       <workItem from="1622044958946" duration="2336000" />
-      <workItem from="1622047346357" duration="5963000" />
+      <workItem from="1622047346357" duration="9346000" />
     </task>
     <task id="LOCAL-00001" summary="Dodanie klas, prototyp.">
       <created>1620851236238</created>
@@ -182,7 +179,21 @@
       <option name="project" value="LOCAL" />
       <updated>1620861494416</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="GUI zrobione, wciąż są problemy z działaniem iteracji,&#10;W GUI dodałem możliwość dodawania własnych pól, można dodawać jeszcze się nie iterują, wybór pliku działa zatwierdzanie iteracji działa.">
+      <created>1622059202399</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1622059202399</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Pewien błąd przy commicie">
+      <created>1622059282959</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1622059282959</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +217,8 @@
     <MESSAGE value="Dodanie klas, prototyp. cd2" />
     <MESSAGE value="Grafika powinna działać" />
     <MESSAGE value="Grafika powinna działać cd(pliki out)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Grafika powinna działać cd(pliki out)" />
+    <MESSAGE value="GUI zrobione, wciąż są problemy z działaniem iteracji,&#10;W GUI dodałem możliwość dodawania własnych pól, można dodawać jeszcze się nie iterują, wybór pliku działa zatwierdzanie iteracji działa." />
+    <MESSAGE value="Pewien błąd przy commicie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pewien błąd przy commicie" />
   </component>
 </project>

@@ -15,6 +15,7 @@ public class LeftPanel extends JPanel implements ActionListener {
 
     protected JButton zatwierdzIteracje = new JButton("Zatwierdz");
     protected JButton zatwierdzNazwePliku = new JButton("Zatwierdz");
+    protected JButton saveThisIteration = new JButton("Zapisz iteracje");
 
     private JButton wybierzNazwePliku = new JButton("Wybierz plik:");
 
@@ -39,17 +40,18 @@ public class LeftPanel extends JPanel implements ActionListener {
 
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
-                        .addComponent(napisWprowadzPlik,50,50,50)
+                        .addComponent(napisWprowadzPlik,35,35,35)
                         .addComponent(wprowadzNazwePliku,35,35,35)
                         .addComponent(wybierzNazwePliku, 35,35,35)
                         .addComponent(zatwierdzNazwePliku,35,35,35)
-                        .addComponent(odstep, 50,50,50)
-                        .addComponent(napisWprowadzIteracje,50,50,50)
+                        .addComponent(odstep, 35,35,35)
+                        .addComponent(napisWprowadzIteracje,35,35,35)
                         .addComponent(wprowadzLiczbeIteracji,35,35,35)
-                        .addComponent(zatwierdzIteracje,50,50,50)
-                        .addComponent(odstep, 50,50,50)
-                        .addComponent(run1)
-                        .addComponent(run)
+                        .addComponent(zatwierdzIteracje,35,35,35)
+                        .addComponent(odstep, 35,35,35)
+                        .addComponent(saveThisIteration, 35,35,35)
+                        .addComponent(run1,35,35,35)
+                        .addComponent(run,35,35,35)
         );
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
@@ -58,13 +60,14 @@ public class LeftPanel extends JPanel implements ActionListener {
                                 .addComponent(wprowadzNazwePliku,150,150,150)
                                 .addComponent(wybierzNazwePliku, 150,150,150)
                                 .addComponent(zatwierdzNazwePliku,150,150,150)
-                                .addComponent(odstep, 150,150,150)
+                                .addComponent(odstep, 50,50,50)
                                 .addComponent(napisWprowadzIteracje,150,150,150)
                                 .addComponent(wprowadzLiczbeIteracji,150,150,150)
                                 .addComponent(zatwierdzIteracje,150,150,150)
                                 .addComponent(odstep, 50,50,50)
-                                .addComponent(run1)
-                                .addComponent(run)
+                                .addComponent(saveThisIteration,150,150,150)
+                                .addComponent(run1,150,150,150)
+                                .addComponent(run,150,150,150)
                         )
         );
     }

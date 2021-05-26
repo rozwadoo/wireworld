@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class Frame extends JFrame implements ActionListener{
 
@@ -11,6 +12,7 @@ public class Frame extends JFrame implements ActionListener{
     protected LeftPanel lewy = new LeftPanel();
     protected RightPanel prawy = new RightPanel();
     private Interface taka;
+    private Iteration iteracja;
 
     public Frame(Interface a) {
         super("Wire World");
@@ -25,6 +27,7 @@ public class Frame extends JFrame implements ActionListener{
         lewy.zatwierdzIteracje.addActionListener(this);
         lewy.zatwierdzNazwePliku.addActionListener(this);
         lewy.run1.addActionListener(this);
+        lewy.saveThisIteration.addActionListener(this);
 
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,9 +69,7 @@ public class Frame extends JFrame implements ActionListener{
         }
 
         if (source == lewy.run) {
-            for(int i=0; i< lewy.getNumerIteracji(); i++){
-                lewy.run1.doClick();
-            }
+            iteracja = new Iteration(taka.getM(), this, lewy.getNumerIteracji());
         }
 
         if (source ==lewy.zatwierdzNazwePliku){
@@ -78,5 +79,11 @@ public class Frame extends JFrame implements ActionListener{
         if(source == lewy.zatwierdzIteracje){
             createEditedMap();
         }
+
+       /* if(source == lewy.saveThisIteration){
+            taka.save();
+        }
+
+        */
     }
 }
