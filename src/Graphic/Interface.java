@@ -5,14 +5,16 @@ import mapa.Map;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Interface {
 
     private Frame ramka = new Frame(this);
     private Map m = new Map();
-    private int it;
+    public int it;
 
-    public Interface() throws InterruptedException {
+    public Interface() {
     }
 
     public void showMap() {
@@ -41,6 +43,23 @@ public class Interface {
     }
 
     public void iteratesBoard(int it) {
+        Timer dataTimer = new Timer();
+        dataTimer.schedule(new TimerTask() {
+
+            public int ta = it;
+
+            @Override
+            public void run() {
+                m.iterate();
+                ramka.takeMap(m.getmToInt());
+                ramka.update();
+                ta--;
+                if(ta == 0){
+                    dataTimer.cancel();
+                    dataTimer.purge();
+                }
+            }
+        }, 0, 500);
 
     }
 

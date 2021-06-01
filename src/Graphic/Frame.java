@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class Frame extends JFrame implements ActionListener{
 
@@ -12,7 +11,6 @@ public class Frame extends JFrame implements ActionListener{
     protected LeftPanel lewy = new LeftPanel();
     protected RightPanel prawy = new RightPanel();
     private Interface taka;
-    private Iteration iteracja;
 
     public Frame(Interface a) {
         super("Wire World");
@@ -69,7 +67,7 @@ public class Frame extends JFrame implements ActionListener{
         }
 
         if (source == lewy.run) {
-            iteracja = new Iteration(taka.getM(), this, lewy.getNumerIteracji());
+            taka.iteratesBoard(lewy.getNumerIteracji());
         }
 
         if (source ==lewy.zatwierdzNazwePliku){
