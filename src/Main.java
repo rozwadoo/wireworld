@@ -1,29 +1,28 @@
-package mapa;
-
 import Graphic.Frame;
+import Graphic.Interface;
 
-import java.io.File;
 import java.io.IOException;
 
 public class Main {
+
     public static void main(String[] args) throws InterruptedException, IOException {
-        Frame ramka = new Frame();
-        Map m = new Map();
-
-
+        Interface taka = new Interface();
+    }
+    /*
         try {
             m.setDim(args[0]);
             m.read(args[0]);
         } catch( IOException e) {
             System.err.println(e.getMessage());
         }
+
         ramka.takeMap(m.getmToInt());
         ramka.update();
 
         int it = Integer.parseInt(args[1]);
 
         for (int i = 0; i <= it; ++i) {
-            //Thread.sleep(550);
+            Thread.sleep(550);
             m.iterate();
             ramka.takeMap(m.getmToInt());
             ramka.update();
@@ -34,7 +33,7 @@ public class Main {
         File file=new File("test/diode1");
         //File file=new File("test/output.txt");
         m.save(file,"test/output1.txt" );
-        int [][] v = m.translate();
+        int [][] v = m.getmToInt();
         for (int j = 0; j < m.getRow(); ++j) {
             for (int i = 0; i < m.getColumn(); ++i) {
                 System.out.printf("%d ", v[j][i]);
@@ -57,11 +56,10 @@ public class Main {
             System.out.println("\n");
         }*/
 
-        //for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(16).getN(i).getPosition());
-        //for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(147).getN(i).getPosition());
-       //for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(48).getN(i).getPosition());
-        ///int q = m.getColumn()*(m.getRow()-1);
-        //int w = m.getBoard().get(147).getPosition() % m.getColumn();
-    }
+    //for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(16).getN(i).getPosition());
+    //for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(147).getN(i).getPosition());
+    //for(int i = 0; i < 8; ++i) System.out.printf("%d ", m.getBoard().get(48).getN(i).getPosition());
+    ///int q = m.getColumn()*(m.getRow()-1);
+    //int w = m.getBoard().get(147).getPosition() % m.getColumn();
 
 }

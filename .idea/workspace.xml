@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="dodane struktury">
+    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Program nie działa poprawnie, wykonuje określoną liczbę iteracji ale nie pokazjue kolejnych tylko ostatnią, jest to błąd do poprawy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/DiodeReversed.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/ORGate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/ORGate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/diodeNormal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/Graphic/Frame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/LeftPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/Graphic/LeftPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/RightPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/Graphic/RightPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/DiodeNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Diode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/DiodeReversed.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/ORGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/ORGate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/diode1" beforeDir="false" afterPath="$PROJECT_DIR$/test/diode1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphic/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphic/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Interface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/output1.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +64,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
@@ -79,7 +76,15 @@
       <recent name="C:\Users\Y700\IdeaProjects\wireworld\.idea\codeStyles" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.default">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="wireworld" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\Y700\Desktop\pw\2\jimp2\labs" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <module name="wireworld" />
       <option name="PROGRAM_PARAMETERS" value="C:\Users\Y700\Desktop\pw\2\jimp2\labs" />
@@ -105,7 +110,13 @@
     <list>
       <item itemvalue="Ammonite.Unnamed" />
       <item itemvalue="Application.default" />
+      <item itemvalue="Application.Main" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -116,6 +127,11 @@
       <option name="presentableId" value="Default" />
       <updated>1620814033260</updated>
       <workItem from="1620883250370" duration="1116000" />
+      <workItem from="1622044958946" duration="2336000" />
+      <workItem from="1622047346357" duration="9571000" />
+      <workItem from="1622102680286" duration="1235000" />
+      <workItem from="1622489937457" duration="5000" />
+      <workItem from="1622542989330" duration="926000" />
     </task>
     <task id="LOCAL-00001" summary="Dodanie klas, prototyp.">
       <created>1620851236238</created>
@@ -152,7 +168,28 @@
       <option name="project" value="LOCAL" />
       <updated>1620861494416</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="GUI zrobione, wciąż są problemy z działaniem iteracji,&#10;W GUI dodałem możliwość dodawania własnych pól, można dodawać jeszcze się nie iterują, wybór pliku działa zatwierdzanie iteracji działa.">
+      <created>1622059202399</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1622059202399</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Pewien błąd przy commicie">
+      <created>1622059282959</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1622059282959</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Program nie działa poprawnie, wykonuje określoną liczbę iteracji ale nie pokazjue kolejnych tylko ostatnią, jest to błąd do poprawy">
+      <created>1622062603719</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1622062603720</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +213,9 @@
     <MESSAGE value="Dodanie klas, prototyp. cd2" />
     <MESSAGE value="Grafika powinna działać" />
     <MESSAGE value="Grafika powinna działać cd(pliki out)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Grafika powinna działać cd(pliki out)" />
+    <MESSAGE value="GUI zrobione, wciąż są problemy z działaniem iteracji,&#10;W GUI dodałem możliwość dodawania własnych pól, można dodawać jeszcze się nie iterują, wybór pliku działa zatwierdzanie iteracji działa." />
+    <MESSAGE value="Pewien błąd przy commicie" />
+    <MESSAGE value="Program nie działa poprawnie, wykonuje określoną liczbę iteracji ale nie pokazjue kolejnych tylko ostatnią, jest to błąd do poprawy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Program nie działa poprawnie, wykonuje określoną liczbę iteracji ale nie pokazjue kolejnych tylko ostatnią, jest to błąd do poprawy" />
   </component>
 </project>

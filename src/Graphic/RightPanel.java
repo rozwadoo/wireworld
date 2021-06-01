@@ -5,36 +5,34 @@ import java.awt.*;
 
 public class RightPanel extends JPanel {
 
-    JPanel [][] panel = new JPanel[50][50];
-    final int rowsColws = 30;
+    protected BoardSetting boardSetting = new BoardSetting();
+    protected Board tarcza = new Board(boardSetting);
+    protected JPanel ustawienia = new JPanel();
 
     RightPanel(){
-        setPreferredSize(new Dimension(700,700));
 
-        setLayout(new GridLayout(rowsColws,rowsColws,0,0));
+        add(tarcza);
+        add(ustawienia);
 
-        for(int i = 0; i < rowsColws; i++){
-            for(int j = 0; j < rowsColws; j++){
-                panel[i][j] = new JPanel();
-                panel[i][j].setSize(new Dimension(10,10));
-                panel[i][j].setBackground(Color.BLACK);
-                add(panel[i][j]);
-            }
-        }
+        setPreferredSize(new Dimension(900,700));
+
+        ustawienia.add(boardSetting);
+        ustawienia.setPreferredSize(new Dimension(140,700));
     }
 
-    public void update(int x, int i, int j){
-        if(x == 1)panel[i][j].setBackground(Color.BLUE);
+    public int getIntegerOfBoard(int a, int b){
+        if(tarcza.panel[a][b].getBackground() == Color.BLUE)return 1;
         else
-        if(x == 2)panel[i][j].setBackground(new Color(255,102,0));
+        if(tarcza.panel[a][b].getBackground() == Color.ORANGE)return 2;
         else
-        if(x == 3)panel[i][j].setBackground(Color.yellow);
+        if(tarcza.panel[a][b].getBackground() == Color.YELLOW)return 3;
         else
-        if(x == 0)panel[i][j].setBackground(Color.BLACK);
+        if(tarcza.panel[a][b].getBackground() == Color.BLACK)return 0;
+        else
+        return -1;
     }
 
-    public int getRowsColws()
-    {
-        return rowsColws;
+    public int getRowsCols(){
+        return tarcza.getRowsColws();
     }
 }

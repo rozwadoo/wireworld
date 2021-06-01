@@ -10,7 +10,7 @@ public class Map {
     private int row;
     private int column;
     private static TreeMap<Integer, Cell> board = new TreeMap<>();
-    private int[][] mToInt = new int[50][ 50];
+    private int[][] mToInt = new int[51][51];
 
 
     public Map(){
@@ -38,6 +38,7 @@ public class Map {
     public void setBoard(TreeMap<Integer, Cell> board) {
         this.board = board;
     }
+
     public void iterate(){
         board.forEach((k,v) -> v.generate());
         board.forEach((k,v) -> v.update());
@@ -214,6 +215,8 @@ public class Map {
         Files.copy(Paths.get("tmp.txt"), Paths.get(name), StandardCopyOption.REPLACE_EXISTING);
         file.delete();
     }
+
+
    public int[][] translate(){
        int [][] a = new int[getRow()][getColumn()];
        for (int i = 0; i <getRow(); ++i) {
@@ -226,12 +229,12 @@ public class Map {
 
     public int[][] getmToInt(){
         for(int i = 1; i < column*row+1; ++i){
-            if(i%row == 0){
-                mToInt[i/row][row] = board.get(i).getState0();
+            if(i%column == 0){
+                mToInt[i/column][column] = board.get(i).getState0();
             }
             else
             {
-                mToInt[i/row + 1][i % row] = board.get(i).getState0();
+                mToInt[i/column + 1][i %column] = board.get(i).getState0();
             }
         }
         return mToInt;
