@@ -7,21 +7,16 @@ import java.io.File;
 
 public class LeftPanel extends JPanel implements ActionListener {
 
-    private JLabel napisWprowadzPlik = new JLabel("Wprowadź nazwę pliku");
-    private JLabel napisWprowadzIteracje = new JLabel("Wprowadź liczbę iteracji");
-
-    private JTextField wprowadzNazwePliku = new JTextField();
-    private JTextField wprowadzLiczbeIteracji = new JTextField();
+    private final JTextField wprowadzNazwePliku = new JTextField();
+    private final JTextField wprowadzLiczbeIteracji = new JTextField();
 
     protected JButton zatwierdzIteracje = new JButton("Zatwierdz");
     protected JButton zatwierdzNazwePliku = new JButton("Zatwierdz");
     protected JButton saveThisIteration = new JButton("Zapisz iteracje");
-    protected JButton run = new JButton("START");
+    protected JButton runAll = new JButton("START");
     protected JButton run1 = new JButton("1 iteracja");
     protected JButton acctual = new JButton("Aktualizuj");
-    private JButton wybierzNazwePliku = new JButton("Wybierz plik:");
-
-    private final JFileChooser fc = new JFileChooser();
+    private final JButton wybierzNazwePliku = new JButton("Wybierz plik:");
 
     private String nazwaPliku;
     private int numerIteracji;
@@ -35,6 +30,9 @@ public class LeftPanel extends JPanel implements ActionListener {
 
         wybierzNazwePliku.addActionListener(this);
         zatwierdzIteracje.addActionListener(this);
+
+        JLabel napisWprowadzPlik = new JLabel("Wprowadź nazwę pliku");
+        JLabel napisWprowadzIteracje = new JLabel("Wprowadź liczbę iteracji");
 
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
@@ -50,7 +48,7 @@ public class LeftPanel extends JPanel implements ActionListener {
                         .addComponent(acctual, 30,30,30)
                         .addComponent(saveThisIteration, 30,30,30)
                         .addGap(30)
-                        .addComponent(run,30,30,30)
+                        .addComponent(runAll,30,30,30)
                         .addComponent(run1,30,30,30)
         );
         layout.setHorizontalGroup(
@@ -68,7 +66,7 @@ public class LeftPanel extends JPanel implements ActionListener {
                                 .addComponent(acctual, 150,150,150)
                                 .addComponent(saveThisIteration,150,150,150)
                                 .addGap(50)
-                                .addComponent(run,150,150,150)
+                                .addComponent(runAll,150,150,150)
                                 .addComponent(run1,150,150,150)
                         )
         );
@@ -112,16 +110,6 @@ public class LeftPanel extends JPanel implements ActionListener {
 
         if(source == zatwierdzNazwePliku){
             nazwaPliku = wprowadzNazwePliku.getText();
-        }
-    }
-
-    private boolean isInteger(String input ) { //Pass in string
-        try { //Try to make the input into an integer
-            Integer.parseInt( input );
-            return true; //Return true if it works
-        }
-        catch( Exception e ) {
-            return false; //If it doesn't work return false
         }
     }
 }

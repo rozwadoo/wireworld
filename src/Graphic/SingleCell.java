@@ -10,16 +10,16 @@ import java.awt.event.ActionListener;
 public class SingleCell extends JButton implements ActionListener {
 
     private final BoardSetting boardSetting;
-    private final SingleCell[][] panel;
+    private final SingleCell[][] cell;
     private final int i;
     private final int j;
     private boolean isEditable;
 
-    SingleCell( SingleCell[][] panel,BoardSetting boardSetting, int i, int j){
+    SingleCell( SingleCell[][] cell,BoardSetting boardSetting, int i, int j){
         super();
         this.i = i;
         this.j = j;
-        this.panel = panel;
+        this.cell = cell;
         this.boardSetting = boardSetting;
         this.boardSetting.setNameElement("Empty");
         isEditable = true;
@@ -48,6 +48,8 @@ public class SingleCell extends JButton implements ActionListener {
     private void createElement(){
         String name = boardSetting.getNameElement();
 
+        if(j + 14 > 41 || i + 9 > 41);//sprawdza czy elementy nie wyjdą poza granice
+        else
         if(name.equals("Empty")){
             this.setBackground(Color.BLACK);
         } else
@@ -62,38 +64,38 @@ public class SingleCell extends JButton implements ActionListener {
         } else
 
         if(name.equals("AndNotGate")){
-            new ElemenstAndNotGate(panel, i, j);
+            new ElemenstAndNotGate(cell, i, j);
         } else
         if(name.equals("R AndNotGate")){
-            new ElementReverseAndNotGate(panel, i, j);
+            new ElementReverseAndNotGate(cell, i, j);
         } else
 
         if(name.equals("Diode")){
-            new ElementDiode(panel, i, j);
+            new ElementDiode(cell, i, j);
         } else
         if(name.equals("R Diode")){
-            new ElementReverseDiode(panel, i, j);
+            new ElementReverseDiode(cell, i, j);
         } else
 
         if(name.equals("EORGate")) {
-            new ElementEORGate(panel, i, j);
+            new ElementEORGate(cell, i, j);
         } else
         if(name.equals("R EORGate")) {
-            new ElementReverseEORGate(panel, i, j);
+            new ElementReverseEORGate(cell, i, j);
         } else
 
         if(name.equals("FlipFlop")) {
-            new ElementFlipFlop(panel, i, j);
+            new ElementFlipFlop(cell, i, j);
         } else
         if(name.equals("R FlipFlop")) {
-            new ElementReverseFlipFlop(panel, i, j);
+            new ElementReverseFlipFlop(cell, i, j);
         } else
 
         if(name.equals("ORGate")) {
-            new ElementORGate(panel, i, j);
+            new ElementORGate(cell, i, j);
         } else
         if(name.equals("R ORGate")) {
-            new ElementReverseORGate(panel, i, j);
+            new ElementReverseORGate(cell, i, j);
         }
     }
 

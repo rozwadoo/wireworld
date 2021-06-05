@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Program wykonuje poprawnie daną liczbę iteracji">
+    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Przyciski dodają konkretne emementy, wciąż brakuje opcji ich iteracji">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/Frame.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/LeftPanel.class" beforeDir="false" />
@@ -19,15 +19,9 @@
       <change beforePath="$PROJECT_DIR$/src/Graphic/BoardSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/BoardSetting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphic/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Frame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphic/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Interface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/Iteration.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphic/LeftPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/LeftPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphic/RightPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/RightPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphic/SingleCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/SingleCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/SwitchColorButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/BoardSettingButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/diode1" beforeDir="false" afterPath="$PROJECT_DIR$/test/diode1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/diode2" beforeDir="false" afterPath="$PROJECT_DIR$/test/diode2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/output1.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +157,7 @@
       <workItem from="1622489937457" duration="5000" />
       <workItem from="1622542989330" duration="5286000" />
       <workItem from="1622562524715" duration="3166000" />
-      <workItem from="1622883942622" duration="9369000" />
+      <workItem from="1622883942622" duration="10798000" />
     </task>
     <task id="LOCAL-00001" summary="Dodanie klas, prototyp.">
       <created>1620851236238</created>
@@ -228,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622544123621</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Przyciski dodają konkretne emementy, wciąż brakuje opcji ich iteracji">
+      <created>1622893590783</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1622893590783</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +257,7 @@
     <MESSAGE value="Pewien błąd przy commicie" />
     <MESSAGE value="Program nie działa poprawnie, wykonuje określoną liczbę iteracji ale nie pokazjue kolejnych tylko ostatnią, jest to błąd do poprawy" />
     <MESSAGE value="Program wykonuje poprawnie daną liczbę iteracji" />
-    <option name="LAST_COMMIT_MESSAGE" value="Program wykonuje poprawnie daną liczbę iteracji" />
+    <MESSAGE value="Przyciski dodają konkretne emementy, wciąż brakuje opcji ich iteracji" />
+    <option name="LAST_COMMIT_MESSAGE" value="Przyciski dodają konkretne emementy, wciąż brakuje opcji ich iteracji" />
   </component>
 </project>

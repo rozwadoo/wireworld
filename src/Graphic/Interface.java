@@ -10,31 +10,31 @@ import java.util.TimerTask;
 
 public class Interface {
 
-    private Frame ramka = new Frame(this);
+    private Frame frame = new Frame(this);
     private Map m = new Map();
     private File tymczasowy;
 
     public Interface() {
-        m.setColumn(ramka.prawy.tarcza.getRowsColws());
-        m.setRow(ramka.prawy.tarcza.getRowsColws());
+        m.setColumn(frame.rightPanel.board.getRowsColws());
+        m.setRow(frame.rightPanel.board.getRowsColws());
     }
 
     public void showMap() {
         try {
-            m.setDim(ramka.getFileName());
-            m.read(ramka.getFileName());
+            m.setDim(frame.getFileName());
+            m.read(frame.getFileName());
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
-        tymczasowy = new File(ramka.getFileName());
-        ramka.takeMap(m.getmToInt());
-        ramka.update();
+        tymczasowy = new File(frame.getFileName());
+        frame.takeMap(m.getmToInt());
+        frame.update();
     }
 
     public void iterateBoard(){
         m.iterate();
-        ramka.takeMap(m.getmToInt());
-        ramka.update();
+        frame.takeMap(m.getmToInt());
+        frame.update();
     }
 
     public void iteratesBoard(int it) {
@@ -46,8 +46,8 @@ public class Interface {
             @Override
             public void run() {
                 m.iterate();
-                ramka.takeMap(m.getmToInt());
-                ramka.update();
+                frame.takeMap(m.getmToInt());
+                frame.update();
                 ta--;
                 if(ta == 0){
                     dataTimer.cancel();
