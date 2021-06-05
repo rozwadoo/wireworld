@@ -50,9 +50,13 @@ public class Frame extends JFrame implements ActionListener{
         return lewy.getNazwaPliku();
     }
 
+    public int[][] getTym(){
+        return prawy.getBoard();
+    }
+
     private void createEditedMap(){
-        for(int i = 0; i < prawy.getRowsCols(); i++){
-            for(int j = 0; j < prawy.getRowsCols(); j++){
+        for(int i = 1; i < prawy.tarcza.getRowsColws(); i++){
+            for(int j = 1; j < prawy.tarcza.getRowsColws(); j++){
                 tym[i][j] = prawy.getIntegerOfBoard(i,j);
             }
         }
@@ -76,12 +80,11 @@ public class Frame extends JFrame implements ActionListener{
 
         if(source == lewy.zatwierdzIteracje){
             createEditedMap();
+            //taka.updateMap();
         }
 
-       /* if(source == lewy.saveThisIteration){
+        if(source == lewy.saveThisIteration){
             taka.save();
         }
-
-        */
     }
 }

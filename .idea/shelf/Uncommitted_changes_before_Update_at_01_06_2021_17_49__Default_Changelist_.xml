@@ -1,0 +1,29 @@
+<changelist name="Uncommitted_changes_before_Update_at_01_06_2021_17_49_[Default_Changelist]" date="1622562549570" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_06_2021_17_49_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 01.06.2021 17:49 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/wireworld/Graphic/Frame.class" />
+    <option name="AFTER_PATH" value="out/production/wireworld/Graphic/Frame.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_06_2021_17_49_[Default_Changelist]/Frame.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/wireworld/Graphic/RightPanel.class" />
+    <option name="AFTER_PATH" value="out/production/wireworld/Graphic/RightPanel.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_06_2021_17_49_[Default_Changelist]/RightPanel.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/wireworld/mapa/main.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/wireworld/Graphic/LeftPanel.class" />
+    <option name="AFTER_PATH" value="out/production/wireworld/Graphic/LeftPanel.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_06_2021_17_49_[Default_Changelist]/LeftPanel.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/wireworld/mapa/map.class" />
+    <option name="AFTER_PATH" value="out/production/wireworld/mapa/map.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_06_2021_17_49_[Default_Changelist]/map.class" />
+  </binary>
+</changelist>

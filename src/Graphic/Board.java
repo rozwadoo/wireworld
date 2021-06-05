@@ -6,27 +6,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
-public class Board extends JPanel{
+public class Board extends JPanel implements ActionListener{
 
-    private BoardSetting settings;
+    private BoardSetting boardSetting;
     protected SingleCell [][] panel = new SingleCell[50][50];
     private int rowsColws = 30;
     private RightPanel previous;
-    private int i;
-    private int j;
 
+    Board(BoardSetting setting){
 
-    Board(BoardSetting board){
-
-        settings = board;
-
+        boardSetting = setting;
+        boardSetting.clear.addActionListener(this);
         int a = 30;
 
         setPreferredSize(new Dimension(700,700));
         setLayout(new GridLayout(rowsColws,rowsColws,1,1));
-        for( i = 0; i < rowsColws; i++){
-            for( j = 0; j < rowsColws; j++){
-                panel[i][j] = new SingleCell(settings);
+        for(int i = 1; i <= rowsColws; i++){
+            for(int j = 1; j <= rowsColws; j++){
+                panel[i][j] = new SingleCell(panel, boardSetting, i, j);
                 panel[i][j].setBackground(Color.BLACK);
                 this.add(panel[i][j]);
             }
@@ -46,5 +43,19 @@ public class Board extends JPanel{
     public int getRowsColws()
     {
         return rowsColws;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object source = e.getSource();
+
+        if(source == boardSetting.clear){
+            for(int i = 1; i <= rowsColws; i++){
+                for(int j = 1; j <= rowsColws; j++){
+                    panel[i][j].setBackground(Color.BLACK);
+                    panel[i][j].setEditable(true);
+                }
+            }
+        }
     }
 }

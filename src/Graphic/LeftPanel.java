@@ -16,12 +16,10 @@ public class LeftPanel extends JPanel implements ActionListener {
     protected JButton zatwierdzIteracje = new JButton("Zatwierdz");
     protected JButton zatwierdzNazwePliku = new JButton("Zatwierdz");
     protected JButton saveThisIteration = new JButton("Zapisz iteracje");
-
-    private JButton wybierzNazwePliku = new JButton("Wybierz plik:");
-
-    private JLabel odstep = new JLabel();
     protected JButton run = new JButton("START");
     protected JButton run1 = new JButton("1 iteracja");
+    protected JButton acctual = new JButton("Aktualizuj");
+    private JButton wybierzNazwePliku = new JButton("Wybierz plik:");
 
     private final JFileChooser fc = new JFileChooser();
 
@@ -40,18 +38,20 @@ public class LeftPanel extends JPanel implements ActionListener {
 
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
-                        .addComponent(napisWprowadzPlik,35,35,35)
-                        .addComponent(wprowadzNazwePliku,35,35,35)
-                        .addComponent(wybierzNazwePliku, 35,35,35)
-                        .addComponent(zatwierdzNazwePliku,35,35,35)
-                        .addComponent(odstep, 35,35,35)
-                        .addComponent(napisWprowadzIteracje,35,35,35)
-                        .addComponent(wprowadzLiczbeIteracji,35,35,35)
-                        .addComponent(zatwierdzIteracje,35,35,35)
-                        .addComponent(odstep, 35,35,35)
-                        .addComponent(saveThisIteration, 35,35,35)
-                        .addComponent(run1,35,35,35)
-                        .addComponent(run,35,35,35)
+                        .addComponent(napisWprowadzPlik,30,30,30)
+                        .addComponent(wprowadzNazwePliku,30,30,30)
+                        .addComponent(wybierzNazwePliku, 30,30,30)
+                        .addComponent(zatwierdzNazwePliku,30,30,30)
+                        .addGap(30)
+                        .addComponent(napisWprowadzIteracje,30,30,30)
+                        .addComponent(wprowadzLiczbeIteracji,30,30,30)
+                        .addComponent(zatwierdzIteracje,30,30,30)
+                        .addGap(30)
+                        .addComponent(acctual, 30,30,30)
+                        .addComponent(saveThisIteration, 30,30,30)
+                        .addGap(30)
+                        .addComponent(run,30,30,30)
+                        .addComponent(run1,30,30,30)
         );
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
@@ -60,14 +60,16 @@ public class LeftPanel extends JPanel implements ActionListener {
                                 .addComponent(wprowadzNazwePliku,150,150,150)
                                 .addComponent(wybierzNazwePliku, 150,150,150)
                                 .addComponent(zatwierdzNazwePliku,150,150,150)
-                                .addComponent(odstep, 50,50,50)
+                                .addGap(50)
                                 .addComponent(napisWprowadzIteracje,150,150,150)
                                 .addComponent(wprowadzLiczbeIteracji,150,150,150)
                                 .addComponent(zatwierdzIteracje,150,150,150)
-                                .addComponent(odstep, 50,50,50)
+                                .addGap(50)
+                                .addComponent(acctual, 150,150,150)
                                 .addComponent(saveThisIteration,150,150,150)
-                                .addComponent(run1,150,150,150)
+                                .addGap(50)
                                 .addComponent(run,150,150,150)
+                                .addComponent(run1,150,150,150)
                         )
         );
     }

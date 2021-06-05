@@ -1,6 +1,6 @@
 package Graphic;
 
-import Graphic.Frame;
+import Graphic.ElementsButtons.ElementDiode;
 import mapa.Map;
 
 import java.io.File;
@@ -12,9 +12,11 @@ public class Interface {
 
     private Frame ramka = new Frame(this);
     private Map m = new Map();
-    public int it;
+    private File tymczasowy;
 
     public Interface() {
+        m.setColumn(ramka.prawy.tarcza.getRowsColws());
+        m.setRow(ramka.prawy.tarcza.getRowsColws());
     }
 
     public void showMap() {
@@ -24,16 +26,9 @@ public class Interface {
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
+        tymczasowy = new File(ramka.getFileName());
         ramka.takeMap(m.getmToInt());
         ramka.update();
-    }
-
-    public Map getM(){
-        return m;
-    }
-
-    public void takeIt(int i){
-        it = i;
     }
 
     public void iterateBoard(){
@@ -60,19 +55,20 @@ public class Interface {
                 }
             }
         }, 0, 500);
-
     }
 
-    /*
+/*
+    public void updateMap(){
+        m.getIntToM(ramka.getTym());
+    }
+*/
+
     public void save(){
-        File file;
         try {
-            m.save(file,"test/output.txt" );
+            m.save(tymczasowy,"test/output.txt" );
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-     */
 }
 

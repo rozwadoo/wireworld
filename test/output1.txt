@@ -1,4 +1,0 @@
-FlipFlop: 1, 5, Normal
-FlipFlop: 0, 13, Reversed
-ElectronTail: 10, 17
-ElectronHead: 11, 17

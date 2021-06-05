@@ -32,7 +32,17 @@ public class RightPanel extends JPanel {
         return -1;
     }
 
-    public int getRowsCols(){
-        return tarcza.getRowsColws();
+
+    public int[][] getBoard(){
+
+        int number = tarcza.getRowsColws();
+
+        int n[][] = new int[51][51];
+        for(int i=1; i <= number; i++){
+            for(int j=1; j <= number; j++){
+                n[i][j] = getIntegerOfBoard(i,j);
+            }
+        }
+        return n;
     }
 }
