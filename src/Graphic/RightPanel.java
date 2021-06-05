@@ -5,16 +5,14 @@ import java.awt.*;
 
 public class RightPanel extends JPanel {
 
-    protected BoardSetting boardSetting = new BoardSetting();
+    private BoardSetting boardSetting = new BoardSetting();
     protected Board board = new Board(boardSetting);
 
     RightPanel(){
-
         add(board);
+        add(boardSetting);
 
         setPreferredSize(new Dimension(900,700));
-
-        add(boardSetting);
         boardSetting.setPreferredSize(new Dimension(140,700));
     }
 

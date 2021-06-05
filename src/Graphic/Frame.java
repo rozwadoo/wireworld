@@ -10,15 +10,15 @@ public class Frame extends JFrame implements ActionListener{
     private int[][] mapOfCells = new int[51][51];
     protected LeftPanel leftPanel = new LeftPanel();
     protected RightPanel rightPanel = new RightPanel();
-    private Interface anInterface;
+    private final Interface anInterface;
 
     public Frame(Interface a) {
         super("Wire World");
         anInterface = a;
-        setPreferredSize(new Dimension(1100, 750));
-        setLocation(0,0);
+        setPreferredSize(new Dimension(1150, 750));
+        setLocation(0, 0);
 
-        setLayout(new FlowLayout(FlowLayout.LEFT,0,0));
+        setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
         add(leftPanel);
         add(rightPanel);
         leftPanel.runAll.addActionListener(this);
@@ -75,8 +75,8 @@ public class Frame extends JFrame implements ActionListener{
             anInterface.iteratesBoard(leftPanel.getNumerIteracji());
         }
 
-        if (source ==leftPanel.zatwierdzNazwePliku){
-            anInterface.showMap();
+        if (source == leftPanel.zatwierdzNazwePliku){
+            anInterface.showMap(getFileName());
         }
 
         if(source == leftPanel.zatwierdzIteracje){
@@ -88,7 +88,7 @@ public class Frame extends JFrame implements ActionListener{
         }
 
         if(source == leftPanel.acctual){
-
+            anInterface.actually(rightPanel.board.getFile());
         }
     }
 }

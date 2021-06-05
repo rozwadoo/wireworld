@@ -1,3 +1,2 @@
-ORGate: 0, 6, Normal
-ORGate: 0, 14, Reversed
-
+Diode: 0, 6, Normal
+Diode: 0, 12, Reversed

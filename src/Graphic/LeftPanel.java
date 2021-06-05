@@ -31,7 +31,7 @@ public class LeftPanel extends JPanel implements ActionListener {
         wybierzNazwePliku.addActionListener(this);
         zatwierdzIteracje.addActionListener(this);
 
-        JLabel napisWprowadzPlik = new JLabel("Wprowadź nazwę pliku");
+        JLabel napisWprowadzPlik = new JLabel("Wprowadź nazwę pliku do odczytu");
         JLabel napisWprowadzIteracje = new JLabel("Wprowadź liczbę iteracji");
 
         layout.setVerticalGroup(
@@ -54,20 +54,20 @@ public class LeftPanel extends JPanel implements ActionListener {
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                                .addComponent(napisWprowadzPlik,150,150,150)
-                                .addComponent(wprowadzNazwePliku,150,150,150)
-                                .addComponent(wybierzNazwePliku, 150,150,150)
-                                .addComponent(zatwierdzNazwePliku,150,150,150)
-                                .addGap(50)
-                                .addComponent(napisWprowadzIteracje,150,150,150)
-                                .addComponent(wprowadzLiczbeIteracji,150,150,150)
-                                .addComponent(zatwierdzIteracje,150,150,150)
-                                .addGap(50)
-                                .addComponent(acctual, 150,150,150)
-                                .addComponent(saveThisIteration,150,150,150)
-                                .addGap(50)
-                                .addComponent(runAll,150,150,150)
-                                .addComponent(run1,150,150,150)
+                                .addComponent(napisWprowadzPlik,200,200,200)
+                                .addComponent(wprowadzNazwePliku,200,200,200)
+                                .addComponent(wybierzNazwePliku, 200,200,200)
+                                .addComponent(zatwierdzNazwePliku,200,200,200)
+
+                                .addComponent(napisWprowadzIteracje,200,200,200)
+                                .addComponent(wprowadzLiczbeIteracji,200,200,200)
+                                .addComponent(zatwierdzIteracje,200,200,200)
+
+                                .addComponent(acctual, 200,200,200)
+                                .addComponent(saveThisIteration,200,200,200)
+
+                                .addComponent(runAll,200,200,200)
+                                .addComponent(run1,200,200,200)
                         )
         );
     }
@@ -79,6 +79,7 @@ public class LeftPanel extends JPanel implements ActionListener {
     public String getNazwaPliku() {
         return nazwaPliku;
     }
+
 
     private void takeFile(){
         File file;
@@ -92,9 +93,8 @@ public class LeftPanel extends JPanel implements ActionListener {
             nazwaPliku = file.getPath();
             wprowadzNazwePliku.setText(nazwaPliku);
         }
-
-
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {

@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class BoardSettingButton extends JButton implements ActionListener {
 
-    private BoardSetting boardSetting;
+    private final BoardSetting boardSetting;
 
     BoardSettingButton(String s, BoardSetting a){
         super(s);

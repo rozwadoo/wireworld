@@ -4,30 +4,44 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Board extends JPanel implements ActionListener{
 
-    private BoardSetting boardSetting;
+    private final BoardSetting boardSetting;
     protected SingleCell [][] cell = new SingleCell[51][51];
-    private int rowsColws = 40;
-    private RightPanel previous;
+    private final int rowsColws = 40;
+    private File temporary;
+    private FileWriter fw;
 
     Board(BoardSetting setting){
 
+        try {
+            temporary = File.createTempFile("Temp-",".txt");
+            temporary.deleteOnExit();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         boardSetting = setting;
         boardSetting.clear.addActionListener(this);
-        int a = 30;
 
         setPreferredSize(new Dimension(700,700));
         setLayout(new GridLayout(rowsColws,rowsColws,1,1));
         for(int i = 1; i <= rowsColws; i++){
             for(int j = 1; j <= rowsColws; j++){
-                cell[i][j] = new SingleCell(cell, boardSetting, i, j);
+                cell[i][j] = new SingleCell(cell, boardSetting, i, j, this);
                 cell[i][j].setBackground(Color.BLACK);
                 this.add(cell[i][j]);
             }
         }
+    }
+
+    public File getFile() {
+        return temporary;
     }
 
     public void update(int x, int a, int b){
@@ -38,11 +52,37 @@ public class Board extends JPanel implements ActionListener{
         if(x == 3)cell[a][b].setBackground(Color.yellow);
         else
         if(x == 0)cell[a][b].setBackground(Color.BLACK);
+
+        if(x != 0)cell[a][b].setEditable(false);
     }
 
     public int getRowsColws()
     {
         return rowsColws;
+    }
+
+    public void addTextLine(String s, int y, int x, String g){
+        x = x - 1;
+        y = y - 1;
+        String a = s + ": " + String.valueOf(x) + ", "
+                + String.valueOf(y) + ", " + g;
+        try {
+            fw = new FileWriter(temporary, true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+        try {
+            bw.write(a);
+            bw.newLine();
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void clearBoard(){
+        boardSetting.clear.doClick();
     }
 
     @Override
