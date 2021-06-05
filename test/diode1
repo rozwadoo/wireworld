@@ -1,4 +1,2 @@
-FlipFlop: 1, 5, Normal
-FlipFlop: 0, 13, Reversed
-ElectronHead: 1, 1
-ElectronHead: 0, 13
+Diode: 0, 6, Normal
+Diode: 0, 12, Reversed

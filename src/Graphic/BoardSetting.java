@@ -1,60 +1,52 @@
 package Graphic;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 
 
-public class BoardSetting extends JPanel implements ActionListener {
+public class BoardSetting extends JPanel{
+    protected BoardSettingButton clear = new BoardSettingButton("Clear", this);
 
-    protected JSlider suwak = new JSlider(10, 50, 30);
-    protected JTextField pole = new JTextField("30", 4);
-    protected JButton accept = new JButton("Zatwierdź");
-
-    private JLabel wyborKoloru = new JLabel("Wybierz element");
-    private SwitchColorButton black = new SwitchColorButton(Color.BLACK);
-    private SwitchColorButton orange = new SwitchColorButton(Color.ORANGE);
-    private SwitchColorButton yellow = new SwitchColorButton(Color.yellow);
-    private SwitchColorButton blue = new SwitchColorButton(Color.blue);
-
-    private Color setColor;
+    private final BoardSettingButton black = new BoardSettingButton("Empty", this);
+    private final BoardSettingButton orange = new BoardSettingButton("Electron tail", this);
+    private final BoardSettingButton yellow = new BoardSettingButton("Conductor", this);
+    private final BoardSettingButton blue = new BoardSettingButton("Electron head", this);
+    private final BoardSettingButton andNotGate = new BoardSettingButton("AndNotGate", this);
+    private final BoardSettingButton reverseAndNotGate = new BoardSettingButton("R AndNotGate", this);
+    private final BoardSettingButton diode = new BoardSettingButton("Diode", this);
+    private final BoardSettingButton reverseDiode = new BoardSettingButton("R Diode", this);
+    private final BoardSettingButton eORGate = new BoardSettingButton("EORGate", this);
+    private final BoardSettingButton rEORGate = new BoardSettingButton("R EORGate", this);
+    private final BoardSettingButton flipFlop = new BoardSettingButton("FlipFlop", this);
+    private final BoardSettingButton RFlipFlop = new BoardSettingButton("R FlipFlop", this);
+    private final BoardSettingButton oRGate = new BoardSettingButton("ORGate", this);
+    private final BoardSettingButton rORGate = new BoardSettingButton("R ORGate", this);
+    private String nameElement;
 
     public BoardSetting() {
-        setColor = black.getBackground();
         setPreferredSize(new Dimension(140,700));
-        add(wyborKoloru);
-        wyborKoloru.setPreferredSize(new Dimension(140,30));
+        add(clear);
         add(black);
         add(orange);
         add(yellow);
         add(blue);
-        black.addActionListener(this);
-        orange.addActionListener(this);
-        yellow.addActionListener(this);
-        blue.addActionListener(this);
-
+        add(andNotGate);
+        add(reverseAndNotGate);
+        add(diode);
+        add(reverseDiode);
+        add(eORGate);
+        add(rEORGate);
+        add(flipFlop);
+        add(RFlipFlop);
+        add(oRGate);
+        add(rORGate);
     }
 
-    public Color getSetColor() {
-        return setColor;
+    public void setNameElement(String nameElement) {
+        this.nameElement = nameElement;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        Object source = e.getSource();
-
-        if(source == black){
-            setColor = black.getBackground();
-        }
-        if(source == orange){
-            setColor = orange.getBackground();
-        }
-        if(source == yellow){
-            setColor = yellow.getBackground();
-        }
-        if(source == blue){
-            setColor = blue.getBackground();
-        }
+    public String getNameElement() {
+        return nameElement;
     }
 }

@@ -7,25 +7,26 @@ import java.awt.event.ActionListener;
 
 public class Frame extends JFrame implements ActionListener{
 
-    private int[][] tym = new int[51][51];
-    protected LeftPanel lewy = new LeftPanel();
-    protected RightPanel prawy = new RightPanel();
-    private Interface taka;
+    private int[][] mapOfCells = new int[51][51];
+    protected LeftPanel leftPanel = new LeftPanel();
+    protected RightPanel rightPanel = new RightPanel();
+    private final Interface anInterface;
 
     public Frame(Interface a) {
         super("Wire World");
-        taka = a;
-        setPreferredSize(new Dimension(1100, 750));
-        setLocation(0,0);
+        anInterface = a;
+        setPreferredSize(new Dimension(1150, 750));
+        setLocation(0, 0);
 
-        setLayout(new FlowLayout(FlowLayout.LEFT,0,0));
-        add(lewy);
-        add(prawy);
-        lewy.run.addActionListener(this);
-        lewy.zatwierdzIteracje.addActionListener(this);
-        lewy.zatwierdzNazwePliku.addActionListener(this);
-        lewy.run1.addActionListener(this);
-        lewy.saveThisIteration.addActionListener(this);
+        setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        add(leftPanel);
+        add(rightPanel);
+        leftPanel.runAll.addActionListener(this);
+        leftPanel.zatwierdzIteracje.addActionListener(this);
+        leftPanel.zatwierdzNazwePliku.addActionListener(this);
+        leftPanel.run1.addActionListener(this);
+        leftPanel.saveThisIteration.addActionListener(this);
+        leftPanel.acctual.addActionListener(this);
 
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,27 +34,31 @@ public class Frame extends JFrame implements ActionListener{
     }
 
     public void takeMap(int[][] tym){
-        this.tym = tym;
+        this.mapOfCells = tym;
     }
 
     public void update(){
-        for(int i=1; i < prawy.tarcza.getRowsColws(); i++)
+        for(int i=1; i < rightPanel.board.getRowsColws(); i++)
         {
-            for(int j = 1; j < prawy.tarcza.getRowsColws(); j++)
+            for(int j = 1; j < rightPanel.board.getRowsColws(); j++)
             {
-                prawy.tarcza.update(tym[i][j],i ,j);
+                rightPanel.board.update(mapOfCells[i][j],i ,j);
             }
         }
     }
 
     public String getFileName(){
-        return lewy.getNazwaPliku();
+        return leftPanel.getNazwaPliku();
+    }
+
+    public int[][] getTym(){
+        return rightPanel.getBoard();
     }
 
     private void createEditedMap(){
-        for(int i = 0; i < prawy.getRowsCols(); i++){
-            for(int j = 0; j < prawy.getRowsCols(); j++){
-                tym[i][j] = prawy.getIntegerOfBoard(i,j);
+        for(int i = 1; i < rightPanel.board.getRowsColws(); i++){
+            for(int j = 1; j < rightPanel.board.getRowsColws(); j++){
+                mapOfCells[i][j] = rightPanel.getIntegerOfBoard(i,j);
             }
         }
     }
@@ -62,26 +67,28 @@ public class Frame extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
 
-        if(source == lewy.run1){
-            taka.iterateBoard();
+        if(source == leftPanel.run1){
+            anInterface.iterateBoard();
         }
 
-        if (source == lewy.run) {
-            taka.iteratesBoard(lewy.getNumerIteracji());
+        if (source == leftPanel.runAll) {
+            anInterface.iteratesBoard(leftPanel.getNumerIteracji());
         }
 
-        if (source ==lewy.zatwierdzNazwePliku){
-            taka.showMap();
+        if (source == leftPanel.zatwierdzNazwePliku){
+            anInterface.showMap(getFileName());
         }
 
-        if(source == lewy.zatwierdzIteracje){
+        if(source == leftPanel.zatwierdzIteracje){
             createEditedMap();
         }
 
-       /* if(source == lewy.saveThisIteration){
-            taka.save();
+        if(source == leftPanel.saveThisIteration){
+            anInterface.save();
         }
 
-        */
+        if(source == leftPanel.acctual){
+            anInterface.actually(rightPanel.board.getFile());
+        }
     }
 }

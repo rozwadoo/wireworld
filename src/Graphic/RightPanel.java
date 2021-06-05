@@ -5,34 +5,40 @@ import java.awt.*;
 
 public class RightPanel extends JPanel {
 
-    protected BoardSetting boardSetting = new BoardSetting();
-    protected Board tarcza = new Board(boardSetting);
-    protected JPanel ustawienia = new JPanel();
+    private BoardSetting boardSetting = new BoardSetting();
+    protected Board board = new Board(boardSetting);
 
     RightPanel(){
-
-        add(tarcza);
-        add(ustawienia);
+        add(board);
+        add(boardSetting);
 
         setPreferredSize(new Dimension(900,700));
-
-        ustawienia.add(boardSetting);
-        ustawienia.setPreferredSize(new Dimension(140,700));
+        boardSetting.setPreferredSize(new Dimension(140,700));
     }
 
     public int getIntegerOfBoard(int a, int b){
-        if(tarcza.panel[a][b].getBackground() == Color.BLUE)return 1;
+        if(board.cell[a][b].getBackground() == Color.BLUE)return 1;
         else
-        if(tarcza.panel[a][b].getBackground() == Color.ORANGE)return 2;
+        if(board.cell[a][b].getBackground() == Color.ORANGE)return 2;
         else
-        if(tarcza.panel[a][b].getBackground() == Color.YELLOW)return 3;
+        if(board.cell[a][b].getBackground() == Color.YELLOW)return 3;
         else
-        if(tarcza.panel[a][b].getBackground() == Color.BLACK)return 0;
+        if(board.cell[a][b].getBackground() == Color.BLACK)return 0;
         else
         return -1;
     }
 
-    public int getRowsCols(){
-        return tarcza.getRowsColws();
+
+    public int[][] getBoard(){
+
+        int number = board.getRowsColws();
+
+        int [][] n = new int[51][51];
+        for(int i=1; i <= number; i++){
+            for(int j=1; j <= number; j++){
+                n[i][j] = getIntegerOfBoard(i,j);
+            }
+        }
+        return n;
     }
 }

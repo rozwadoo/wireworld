@@ -7,23 +7,16 @@ import java.io.File;
 
 public class LeftPanel extends JPanel implements ActionListener {
 
-    private JLabel napisWprowadzPlik = new JLabel("Wprowadź nazwę pliku");
-    private JLabel napisWprowadzIteracje = new JLabel("Wprowadź liczbę iteracji");
-
-    private JTextField wprowadzNazwePliku = new JTextField();
-    private JTextField wprowadzLiczbeIteracji = new JTextField();
+    private final JTextField wprowadzNazwePliku = new JTextField();
+    private final JTextField wprowadzLiczbeIteracji = new JTextField();
 
     protected JButton zatwierdzIteracje = new JButton("Zatwierdz");
     protected JButton zatwierdzNazwePliku = new JButton("Zatwierdz");
     protected JButton saveThisIteration = new JButton("Zapisz iteracje");
-
-    private JButton wybierzNazwePliku = new JButton("Wybierz plik:");
-
-    private JLabel odstep = new JLabel();
-    protected JButton run = new JButton("START");
+    protected JButton runAll = new JButton("START");
     protected JButton run1 = new JButton("1 iteracja");
-
-    private final JFileChooser fc = new JFileChooser();
+    protected JButton acctual = new JButton("Aktualizuj");
+    private final JButton wybierzNazwePliku = new JButton("Wybierz plik:");
 
     private String nazwaPliku;
     private int numerIteracji;
@@ -38,36 +31,43 @@ public class LeftPanel extends JPanel implements ActionListener {
         wybierzNazwePliku.addActionListener(this);
         zatwierdzIteracje.addActionListener(this);
 
+        JLabel napisWprowadzPlik = new JLabel("Wprowadź nazwę pliku do odczytu");
+        JLabel napisWprowadzIteracje = new JLabel("Wprowadź liczbę iteracji");
+
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
-                        .addComponent(napisWprowadzPlik,35,35,35)
-                        .addComponent(wprowadzNazwePliku,35,35,35)
-                        .addComponent(wybierzNazwePliku, 35,35,35)
-                        .addComponent(zatwierdzNazwePliku,35,35,35)
-                        .addComponent(odstep, 35,35,35)
-                        .addComponent(napisWprowadzIteracje,35,35,35)
-                        .addComponent(wprowadzLiczbeIteracji,35,35,35)
-                        .addComponent(zatwierdzIteracje,35,35,35)
-                        .addComponent(odstep, 35,35,35)
-                        .addComponent(saveThisIteration, 35,35,35)
-                        .addComponent(run1,35,35,35)
-                        .addComponent(run,35,35,35)
+                        .addComponent(napisWprowadzPlik,30,30,30)
+                        .addComponent(wprowadzNazwePliku,30,30,30)
+                        .addComponent(wybierzNazwePliku, 30,30,30)
+                        .addComponent(zatwierdzNazwePliku,30,30,30)
+                        .addGap(30)
+                        .addComponent(napisWprowadzIteracje,30,30,30)
+                        .addComponent(wprowadzLiczbeIteracji,30,30,30)
+                        .addComponent(zatwierdzIteracje,30,30,30)
+                        .addGap(30)
+                        .addComponent(acctual, 30,30,30)
+                        .addComponent(saveThisIteration, 30,30,30)
+                        .addGap(30)
+                        .addComponent(runAll,30,30,30)
+                        .addComponent(run1,30,30,30)
         );
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                                .addComponent(napisWprowadzPlik,150,150,150)
-                                .addComponent(wprowadzNazwePliku,150,150,150)
-                                .addComponent(wybierzNazwePliku, 150,150,150)
-                                .addComponent(zatwierdzNazwePliku,150,150,150)
-                                .addComponent(odstep, 50,50,50)
-                                .addComponent(napisWprowadzIteracje,150,150,150)
-                                .addComponent(wprowadzLiczbeIteracji,150,150,150)
-                                .addComponent(zatwierdzIteracje,150,150,150)
-                                .addComponent(odstep, 50,50,50)
-                                .addComponent(saveThisIteration,150,150,150)
-                                .addComponent(run1,150,150,150)
-                                .addComponent(run,150,150,150)
+                                .addComponent(napisWprowadzPlik,200,200,200)
+                                .addComponent(wprowadzNazwePliku,200,200,200)
+                                .addComponent(wybierzNazwePliku, 200,200,200)
+                                .addComponent(zatwierdzNazwePliku,200,200,200)
+
+                                .addComponent(napisWprowadzIteracje,200,200,200)
+                                .addComponent(wprowadzLiczbeIteracji,200,200,200)
+                                .addComponent(zatwierdzIteracje,200,200,200)
+
+                                .addComponent(acctual, 200,200,200)
+                                .addComponent(saveThisIteration,200,200,200)
+
+                                .addComponent(runAll,200,200,200)
+                                .addComponent(run1,200,200,200)
                         )
         );
     }
@@ -79,6 +79,7 @@ public class LeftPanel extends JPanel implements ActionListener {
     public String getNazwaPliku() {
         return nazwaPliku;
     }
+
 
     private void takeFile(){
         File file;
@@ -92,9 +93,8 @@ public class LeftPanel extends JPanel implements ActionListener {
             nazwaPliku = file.getPath();
             wprowadzNazwePliku.setText(nazwaPliku);
         }
-
-
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -110,16 +110,6 @@ public class LeftPanel extends JPanel implements ActionListener {
 
         if(source == zatwierdzNazwePliku){
             nazwaPliku = wprowadzNazwePliku.getText();
-        }
-    }
-
-    private boolean isInteger(String input ) { //Pass in string
-        try { //Try to make the input into an integer
-            Integer.parseInt( input );
-            return true; //Return true if it works
-        }
-        catch( Exception e ) {
-            return false; //If it doesn't work return false
         }
     }
 }
