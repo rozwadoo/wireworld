@@ -1,8 +1,5 @@
 package mapa;
 
-import java.io.File;
-import java.io.IOException;
-
 public class ORGate extends Structure {
     public ORGate(int s, Map m, String lname) {
         setRow(7);
@@ -38,6 +35,6 @@ public class ORGate extends Structure {
                 make(s + 6 + m.getColumn(), m);
                 break;
         }
-        m.LoE.put(getStart() , this);
+        m.getLoE().put(getStart() , this);
     }
 }

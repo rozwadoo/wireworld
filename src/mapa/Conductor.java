@@ -6,7 +6,7 @@ public class Conductor extends Structure {
         setLname(lname);
         setStart(s);
         make(s, m);
-        m.LoE.put(getStart() , this);
+        m.getLoE().put(getStart() , this);
     }
     public Conductor(int s, Map m, String lname, int n) {
         setName("Conductor");
@@ -33,7 +33,7 @@ public class Conductor extends Structure {
                 }
                 break;
         }
-        m.LoE.put(getStart() , this);
+        m.getLoE().put(getStart() , this);
     }
 }
 

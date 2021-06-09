@@ -1,5 +1,8 @@
 package Graphic;
 
+import mapa.Map;
+import mapa.Structure;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,6 +11,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class Board extends JPanel implements ActionListener{
 
@@ -16,6 +20,7 @@ public class Board extends JPanel implements ActionListener{
     private final int rowsColws = 40;
     private File temporary;
     private FileWriter fw;
+    private HashMap<Integer, Structure> LoE = new HashMap<>();
 
     Board(BoardSetting setting){
 
@@ -122,5 +127,13 @@ public class Board extends JPanel implements ActionListener{
             }
             createFile();
         }
+    }
+
+    public HashMap<Integer, Structure> getLoE() {
+        return LoE;
+    }
+
+    public void setLoE(HashMap<Integer, Structure> loE) {
+        LoE = loE;
     }
 }

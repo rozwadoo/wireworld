@@ -55,6 +55,6 @@ public class FlipFlop extends Structure {
                 }
                 break;
         }
-        m.LoE.put(getStart() , this);
+        m.getLoE().put(getStart() , this);
     }
 }

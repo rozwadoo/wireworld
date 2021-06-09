@@ -1,6 +1,8 @@
 package Graphic;
 
 import Graphic.Element.*;
+import mapa.Map;
+import mapa.Structure;
 
 import javax.swing.JButton;
 import java.awt.Color;
@@ -76,6 +78,8 @@ public class SingleCell extends JButton implements ActionListener {
         if(name.equals("Diode")){
             new Diode(cell, i - 1, j).normal();
             board.addTextLine("Diode", i, j, "Normal");
+            Structure n = new mapa.Diode(j*50 + i +1, "Normal");
+            board.getLoE().put(n.getStart() , n);
         } else
         if(name.equals("R Diode")){
             new Diode(cell, i - 1, j).reverse();

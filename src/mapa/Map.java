@@ -1,9 +1,6 @@
 package mapa;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
 import java.util.TreeMap;
 
@@ -12,7 +9,7 @@ public class Map {
     private int column;
     private static TreeMap<Integer, Cell> board = new TreeMap<>();
     private int[][] mToInt = new int[51][51];
-    HashMap<Integer, Structure> LoE = new HashMap<>();
+    private HashMap<Integer, Structure> LoE = new HashMap<>();
 
 
     public Map(){
@@ -117,18 +114,18 @@ public class Map {
                         n = new Conductor(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, t);
                         getBoard().get(n.getStart()).setState0(1);
                         getBoard().get(n.getStart()).giveN(this);
-                        if(h == 1) LoE.remove(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), n);
+                        if(h == 1) getLoE().remove(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), n);
                         break;
                     case "ElectronTail":
                         n = new Conductor(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, t);
                         getBoard().get(n.getStart()).setState0(2);
                         getBoard().get(n.getStart()).giveN(this);
-                        if(h == 1) LoE.remove(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), n);
+                        if(h == 1) getLoE().remove(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), n);
                         break;
                     case "Conductor":
                         n = new Conductor(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, t);
                         getBoard().get(n.getStart()).giveN(this);
-                        if(h == 1) LoE.remove(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), n);
+                        if(h == 1) getLoE().remove(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), n);
                         break;
                 }
             } catch( ArrayIndexOutOfBoundsException|NumberFormatException e) {
@@ -136,11 +133,25 @@ public class Map {
             }
         }
     }
-    public void save(String name) throws IOException {
+    public void save(String name, HashMap<Integer, Structure> LoE) throws IOException {
         java.io.File file = new java.io.File(name);
         file.createNewFile();
         FileWriter fw = new FileWriter(file);
         BufferedWriter bw = new BufferedWriter(fw);
+        for(HashMap.Entry<Integer, Structure> entry : getLoE().entrySet()) {
+            Structure n =  entry.getValue();
+            Integer s = entry.getKey();
+            int ro;
+            int c;
+            if (s % getColumn() != 0) {
+                c = (s % getColumn()) - 1;
+                ro = (s - (s % getColumn())) / getColumn();
+            } else {
+                c = getColumn() - 1;
+                ro = s / getColumn() - 1;
+            }
+            bw.write(n.getName() + ": " + c + ", " + ro + ", " + n.getLname() + "\n");
+        }
         for(HashMap.Entry<Integer, Structure> entry : LoE.entrySet()) {
             Structure n =  entry.getValue();
             Integer s = entry.getKey();
@@ -203,4 +214,11 @@ public class Map {
         return mToInt;
     }
 
+    public HashMap<Integer, Structure> getLoE() {
+        return LoE;
+    }
+
+    public void setLoE(HashMap<Integer, Structure> loE) {
+        LoE = loE;
+    }
 }

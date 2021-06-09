@@ -45,6 +45,6 @@ public class AndNotGate extends Structure {
                 make(s + m.getColumn() + 7, m);
                 break;
         }
-        m.LoE.put(getStart() , this);
+        m.getLoE().put(getStart() , this);
     }
 }

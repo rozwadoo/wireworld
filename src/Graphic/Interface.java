@@ -13,25 +13,25 @@ public class Interface {
     private File file;
 
     public Interface() {
-        m.setColumn(frame.rightPanel.board.getRowsColws());
-        m.setRow(frame.rightPanel.board.getRowsColws());
+        getM().setColumn(frame.rightPanel.board.getRowsColws());
+        getM().setRow(frame.rightPanel.board.getRowsColws());
     }
 
     public void showMap(String name) {
         try {
-            m.setDim(name);
-            m.read(name);
+            getM().setDim(name);
+            getM().read(name);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
         file = new File(name);
-        frame.takeMap(m.getmToInt());
+        frame.takeMap(getM().getmToInt());
         frame.update();
     }
 
     public void iterateBoard(){
-        m.iterate();
-        frame.takeMap(m.getmToInt());
+        getM().iterate();
+        frame.takeMap(getM().getmToInt());
         frame.update();
     }
 
@@ -43,8 +43,8 @@ public class Interface {
 
             @Override
             public void run() {
-                m.iterate();
-                frame.takeMap(m.getmToInt());
+                getM().iterate();
+                frame.takeMap(getM().getmToInt());
                 frame.update();
                 ta--;
                 if(ta == 0){
@@ -62,7 +62,7 @@ public class Interface {
 */
     public void save(){
         try {
-            m.save("output.txt");
+            getM().save("output.txt", frame.rightPanel.board.getLoE() );
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -111,13 +111,17 @@ public class Interface {
     private void showMapUpdate(String name) {
         frame.rightPanel.board.clearBoard();
         try {
-            m.setDim(name);
-            m.read(name);
+            getM().setDim(name);
+            getM().read(name);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
-        frame.takeMap(m.getmToInt());
+        frame.takeMap(getM().getmToInt());
         frame.update();
+    }
+
+    public Map getM() {
+        return m;
     }
 }
 
