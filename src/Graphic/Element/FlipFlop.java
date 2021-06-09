@@ -5,7 +5,7 @@ import Graphic.SingleCell;
 
 public class FlipFlop extends Elements {
 
-    private int [][] flipflop = {
+    private final int [][] flipflop = {
             {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
@@ -17,8 +17,8 @@ public class FlipFlop extends Elements {
             {1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
 
-    private int width = 14;
-    private int height = 9;
+    private final int width = 14;
+    private final int height = 9;
 
     public FlipFlop(SingleCell[][] board, int i, int j) {
         super(board, i, j);
@@ -28,6 +28,6 @@ public class FlipFlop extends Elements {
     public void setSets(){
         setWidth(width);
         setHeight(height);
-        setStructur(flipflop);
+        setStructure(flipflop);
     }
 }

@@ -8,12 +8,13 @@ public class Map {
     private int row;
     private int column;
     private static TreeMap<Integer, Cell> board = new TreeMap<>();
-    private int[][] mToInt = new int[51][51];
+    private final int[][] mToInt = new int[51][51];
     private HashMap<Integer, Structure> LoE = new HashMap<>();
 
 
     public Map(){
     }
+
     public int getRow() {
         return row;
     }
@@ -41,10 +42,9 @@ public class Map {
     public void iterate(){
         board.forEach((k,v) -> v.generate());
         board.forEach((k,v) -> v.update());
-        }
+    }
 
-    public void setDim( String path)
-            throws IOException, FileNotFoundException {
+    public void setDim( String path) throws IOException, FileNotFoundException {
         BufferedReader r = new BufferedReader(new FileReader(path));
         String line;
         int row = 1;

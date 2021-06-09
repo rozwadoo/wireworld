@@ -15,6 +15,15 @@ public class Interface {
     public Interface() {
         getM().setColumn(frame.rightPanel.board.getRowsColws());
         getM().setRow(frame.rightPanel.board.getRowsColws());
+
+        try {
+            PrintWriter writer = new PrintWriter("temporary.txt");
+            writer.print("");
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        
     }
 
     public void showMap(String name) {
@@ -55,11 +64,6 @@ public class Interface {
         }, 0, 400);
     }
 
-/*
-    public void updateMap(){
-        m.getIntToM(ramka.getTym());
-    }
-*/
     public void save(){
         try {
             getM().save("output.txt", frame.rightPanel.board.getLoE() );
@@ -70,46 +74,42 @@ public class Interface {
 
     public void actually(File temporary){
 
-        PrintWriter writer = null;
-        try {
-            writer = new PrintWriter("temporary.txt");
-            writer.print("");
-            writer.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
         String new_odp = "temporary.txt";
-        PrintWriter pw = null;
+        PrintWriter pw;
+
         try {
+
             pw = new PrintWriter(new_odp);
             BufferedReader br = new BufferedReader(new FileReader(file.getAbsolutePath()));
             String line = br.readLine();
+
             while (line != null)
             {
                 pw.println(line);
                 line = br.readLine();
             }
+
             br = new BufferedReader(new FileReader(temporary.getAbsolutePath()));
             line = br.readLine();
+
             while(line != null)
             {
                 pw.println(line);
                 line = br.readLine();
             }
+
             pw.flush();
             br.close();
             pw.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         showMapUpdate(new_odp);
     }
 
     private void showMapUpdate(String name) {
-        frame.rightPanel.board.clearBoard();
         try {
             getM().setDim(name);
             getM().read(name);

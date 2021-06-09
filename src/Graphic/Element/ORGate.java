@@ -5,7 +5,7 @@ import Graphic.SingleCell;
 
 public class ORGate extends Elements {
 
-    private int [][] orgate = {
+    private final int [][] orgate = {
             { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
             { 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
             { 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -13,8 +13,8 @@ public class ORGate extends Elements {
             { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0}
     };
 
-    private int width = 14;
-    private int height = 5;
+    private final int width = 14;
+    private final int height = 5;
 
     public ORGate(SingleCell[][] board, int i, int j) {
         super(board, i, j);
@@ -24,6 +24,6 @@ public class ORGate extends Elements {
     public void setSets(){
         setWidth(width);
         setHeight(height);
-        setStructur(orgate);
+        setStructure(orgate);
     }
 }

@@ -1,12 +1,15 @@
 package mapa;
 
 public class EORGate extends Structure {
+
     public EORGate(int s, Map m, String lname){
+
         setRow(9);
         setColumn(14);
         setName("EORGate");
         setLname(lname);
         setStart(s);
+
         switch(lname) {
             case "Normal":
                 for (int i = s - m.getColumn() * 3; i < s - m.getColumn() * 3 + 6; ++i) {
@@ -51,4 +54,11 @@ public class EORGate extends Structure {
         }
         m.getLoE().put(getStart() , this);
     }
+
+    public EORGate(int s, String lname) {
+        setName("Diode");
+        setLname(lname);
+        setStart(s);
+    }
+
 }

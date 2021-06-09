@@ -1,12 +1,15 @@
 package mapa;
 
 public class AndNotGate extends Structure {
+
     public AndNotGate(int s, Map m, String lname){
+
         setRow(9);
         setColumn(14);
         setName("AndNotGate");
         setLname(lname);
         setStart(s);
+
         switch(lname) {
             case "Normal":
                 for (int i = s - m.getColumn() * 3; i < s - m.getColumn() * 3 + 7; ++i) {
@@ -47,4 +50,11 @@ public class AndNotGate extends Structure {
         }
         m.getLoE().put(getStart() , this);
     }
+
+    public AndNotGate(int s, String lname) {
+        setName("Diode");
+        setLname(lname);
+        setStart(s);
+    }
+
 }

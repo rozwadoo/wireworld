@@ -1,7 +1,8 @@
 package Graphic;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,6 +15,7 @@ public class Frame extends JFrame implements ActionListener{
 
     public Frame(Interface a) {
         super("Wire World");
+
         anInterface = a;
         setPreferredSize(new Dimension(1150, 750));
         setLocation(0, 0);
@@ -22,7 +24,6 @@ public class Frame extends JFrame implements ActionListener{
         add(leftPanel);
         add(rightPanel);
         leftPanel.runAll.addActionListener(this);
-        leftPanel.zatwierdzIteracje.addActionListener(this);
         leftPanel.zatwierdzNazwePliku.addActionListener(this);
         leftPanel.run1.addActionListener(this);
         leftPanel.saveThisIteration.addActionListener(this);
@@ -31,6 +32,10 @@ public class Frame extends JFrame implements ActionListener{
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
+    }
+
+    public String getFileName(){
+        return leftPanel.getNazwaPliku();
     }
 
     public void takeMap(int[][] tym){
@@ -43,22 +48,6 @@ public class Frame extends JFrame implements ActionListener{
             for(int j = 1; j < rightPanel.board.getRowsColws(); j++)
             {
                 rightPanel.board.update(mapOfCells[i][j],i ,j);
-            }
-        }
-    }
-
-    public String getFileName(){
-        return leftPanel.getNazwaPliku();
-    }
-
-    public int[][] getTym(){
-        return rightPanel.getBoard();
-    }
-
-    private void createEditedMap(){
-        for(int i = 1; i < rightPanel.board.getRowsColws(); i++){
-            for(int j = 1; j < rightPanel.board.getRowsColws(); j++){
-                mapOfCells[i][j] = rightPanel.getIntegerOfBoard(i,j);
             }
         }
     }
@@ -77,10 +66,6 @@ public class Frame extends JFrame implements ActionListener{
 
         if (source == leftPanel.zatwierdzNazwePliku){
             anInterface.showMap(getFileName());
-        }
-
-        if(source == leftPanel.zatwierdzIteracje){
-            createEditedMap();
         }
 
         if(source == leftPanel.saveThisIteration){
