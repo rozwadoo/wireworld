@@ -2,9 +2,7 @@ package Graphic;
 
 import mapa.Map;
 
-
 import java.io.*;
-import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -64,14 +62,24 @@ public class Interface {
 */
     public void save(){
         try {
-            m.save("-odp.txt");
+            m.save("output.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void actually(File temporary){
-        String new_odp = file.getAbsolutePath() + "-odp.txt";
+
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter("temporary.txt");
+            writer.print("");
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        String new_odp = "temporary.txt";
         PrintWriter pw = null;
         try {
             pw = new PrintWriter(new_odp);

@@ -1,14 +1,11 @@
 package Graphic;
 
-import Graphic.ElementsButtons.*;
-
+import Graphic.Element.*;
 
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.IOException;
 
 public class SingleCell extends JButton implements ActionListener {
 
@@ -31,11 +28,6 @@ public class SingleCell extends JButton implements ActionListener {
         addActionListener(this);
     }
 
-    public void setElement(){
-        setBackground(Color.YELLOW);
-        isEditable = false;
-    }
-
     public void setEditable(boolean b){
         isEditable = b;
     }
@@ -45,8 +37,11 @@ public class SingleCell extends JButton implements ActionListener {
         Object source = e.getSource();
 
         if(source == this){
-            if(isEditable)
+            if(boardSetting.getNameElement().equals("Electron tail") || boardSetting.getNameElement().equals("Electron head"))
                 createElement();
+            else
+                if(isEditable)
+                    createElement();
         }
     }
 
@@ -58,56 +53,59 @@ public class SingleCell extends JButton implements ActionListener {
         } else
         if(name.equals("Electron tail")){
             this.setBackground(Color.orange);
+            board.addTextLine("ElectronTail", i, j);
         } else
         if(name.equals("Conductor")){
             this.setBackground(Color.yellow);
+            board.addTextLine("Conductor", i, j);
         } else
         if(name.equals("Electron head")){
             this.setBackground(Color.BLUE);
+            board.addTextLine("ElectronHead", i, j);
         } else
 
         if(name.equals("AndNotGate")){
-            new ElemenstAndNotGate(cell, i -3, j);
+            new AndNotGate(cell, i -3, j).normal();
             board.addTextLine("AndNotGate", i, j, "Normal");
         } else
         if(name.equals("R AndNotGate")){
-            new ElementReverseAndNotGate(cell, i - 3, j);
+            new AndNotGate(cell, i - 3, j).normal();
             board.addTextLine("AndNotGate", i, j, "Reversed");
         } else
 
         if(name.equals("Diode")){
-            new ElementDiode(cell, i - 1, j);
+            new Diode(cell, i - 1, j).normal();
             board.addTextLine("Diode", i, j, "Normal");
         } else
         if(name.equals("R Diode")){
-            new ElementReverseDiode(cell, i - 1, j);
+            new Diode(cell, i - 1, j).reverse();
             board.addTextLine("Diode", i, j, "Reversed");
         } else
 
         if(name.equals("EORGate")) {
-            new ElementEORGate(cell, i -3, j);
+            new EORGate(cell, i -3, j).normal();
             board.addTextLine("EORGate", i, j, "Normal");
         } else
         if(name.equals("R EORGate")) {
-            new ElementReverseEORGate(cell, i -3, j);
+            new EORGate(cell, i -3, j).reverse();
             board.addTextLine("EORGate", i, j, "Reversed");
         } else
 
         if(name.equals("FlipFlop")) {
-            new ElementFlipFlop(cell, i - 4, j);
+            new FlipFlop(cell, i - 4, j).normal();
             board.addTextLine("FlipFlop", i, j, "Normal");
         } else
         if(name.equals("R FlipFlop")) {
-            new ElementReverseFlipFlop(cell, i - 4, j);
+            new FlipFlop(cell, i - 4, j).reverse();
             board.addTextLine("FlipFlop", i, j, "Reversed");
         } else
 
         if(name.equals("ORGate")) {
-            new ElementORGate(cell, i - 2, j);
+            new ORGate(cell, i - 2, j).normal();
             board.addTextLine("ORGate", i, j, "Normal");
         } else
         if(name.equals("R ORGate")) {
-            new ElementReverseORGate(cell, i - 2, j);
+            new ORGate(cell, i - 2, j).reverse();
             board.addTextLine("ORGate", i, j, "Reversed");
         }
     }
