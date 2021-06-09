@@ -5,14 +5,14 @@ import Graphic.SingleCell;
 
 public class Diode extends Elements {
 
-    private int [][] diode = {
+    private final int [][] diode = {
             {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
             {1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1},
             {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0}
     };
 
-    private int width = 14;
-    private int height = 3;
+    private final int width = 14;
+    private final int height = 3;
 
     public Diode(SingleCell[][] board, int i, int j){
         super(board, i, j);
@@ -22,7 +22,7 @@ public class Diode extends Elements {
     public void setSets(){
         setWidth(width);
         setHeight(height);
-        setStructur(diode);
+        setStructure(diode);
     }
 
 

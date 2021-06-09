@@ -1,0 +1,301 @@
+Index: src/Graphic/SingleCell.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Graphic;\r\n\r\nimport Graphic.Element.*;\r\n\r\nimport javax.swing.JButton;\r\nimport java.awt.Color;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\n\r\npublic class SingleCell extends JButton implements ActionListener {\r\n\r\n    private final BoardSetting boardSetting;\r\n    private final SingleCell[][] cell;\r\n    private final Board board;\r\n    private final int i;\r\n    private final int j;\r\n    private boolean isEditable;\r\n\r\n    SingleCell( SingleCell[][] cell,BoardSetting boardSetting, int i, int j, Board board){\r\n        super();\r\n        this.i = i;\r\n        this.j = j;\r\n        this.cell = cell;\r\n        this.boardSetting = boardSetting;\r\n        this.boardSetting.setNameElement(\"Empty\");\r\n        isEditable = true;\r\n        this.board = board;\r\n        addActionListener(this);\r\n    }\r\n\r\n    public void setEditable(boolean b){\r\n        isEditable = b;\r\n    }\r\n\r\n    @Override\r\n    public void actionPerformed(ActionEvent e) {\r\n        Object source = e.getSource();\r\n\r\n        if(source == this){\r\n            if(boardSetting.getNameElement().equals(\"Electron tail\") || boardSetting.getNameElement().equals(\"Electron head\"))\r\n                createElement();\r\n            else\r\n                if(isEditable)\r\n                    createElement();\r\n        }\r\n    }\r\n\r\n    private void createElement(){\r\n        String name = boardSetting.getNameElement();\r\n\r\n        if(name.equals(\"Empty\")){\r\n            this.setBackground(Color.BLACK);\r\n        } else\r\n        if(name.equals(\"Electron tail\")){\r\n            this.setBackground(Color.orange);\r\n            board.addTextLine(\"ElectronTail\", i, j);\r\n        } else\r\n        if(name.equals(\"Conductor\")){\r\n            this.setBackground(Color.yellow);\r\n            board.addTextLine(\"Conductor\", i, j);\r\n        } else\r\n        if(name.equals(\"Electron head\")){\r\n            this.setBackground(Color.BLUE);\r\n            board.addTextLine(\"ElectronHead\", i, j);\r\n        } else\r\n\r\n        if(name.equals(\"AndNotGate\")){\r\n            new AndNotGate(cell, i -3, j).normal();\r\n            board.addTextLine(\"AndNotGate\", i, j, \"Normal\");\r\n        } else\r\n        if(name.equals(\"R AndNotGate\")){\r\n            new AndNotGate(cell, i - 3, j).normal();\r\n            board.addTextLine(\"AndNotGate\", i, j, \"Reversed\");\r\n        } else\r\n\r\n        if(name.equals(\"Diode\")){\r\n            new Diode(cell, i - 1, j).normal();\r\n            board.addTextLine(\"Diode\", i, j, \"Normal\");\r\n        } else\r\n        if(name.equals(\"R Diode\")){\r\n            new Diode(cell, i - 1, j).reverse();\r\n            board.addTextLine(\"Diode\", i, j, \"Reversed\");\r\n        } else\r\n\r\n        if(name.equals(\"EORGate\")) {\r\n            new EORGate(cell, i -3, j).normal();\r\n            board.addTextLine(\"EORGate\", i, j, \"Normal\");\r\n        } else\r\n        if(name.equals(\"R EORGate\")) {\r\n            new EORGate(cell, i -3, j).reverse();\r\n            board.addTextLine(\"EORGate\", i, j, \"Reversed\");\r\n        } else\r\n\r\n        if(name.equals(\"FlipFlop\")) {\r\n            new FlipFlop(cell, i - 4, j).normal();\r\n            board.addTextLine(\"FlipFlop\", i, j, \"Normal\");\r\n        } else\r\n        if(name.equals(\"R FlipFlop\")) {\r\n            new FlipFlop(cell, i - 4, j).reverse();\r\n            board.addTextLine(\"FlipFlop\", i, j, \"Reversed\");\r\n        } else\r\n\r\n        if(name.equals(\"ORGate\")) {\r\n            new ORGate(cell, i - 2, j).normal();\r\n            board.addTextLine(\"ORGate\", i, j, \"Normal\");\r\n        } else\r\n        if(name.equals(\"R ORGate\")) {\r\n            new ORGate(cell, i - 2, j).reverse();\r\n            board.addTextLine(\"ORGate\", i, j, \"Reversed\");\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Graphic/SingleCell.java b/src/Graphic/SingleCell.java
+--- a/src/Graphic/SingleCell.java	(revision 405888c5fd891f6e0b1f358bbb63319e861bda45)
++++ b/src/Graphic/SingleCell.java	(date 1623265555557)
+@@ -1,6 +1,8 @@
+ package Graphic;
+ 
+ import Graphic.Element.*;
++import mapa.Map;
++import mapa.Structure;
+ 
+ import javax.swing.JButton;
+ import java.awt.Color;
+@@ -15,6 +17,7 @@
+     private final int i;
+     private final int j;
+     private boolean isEditable;
++    private Map map;
+ 
+     SingleCell( SingleCell[][] cell,BoardSetting boardSetting, int i, int j, Board board){
+         super();
+@@ -32,6 +35,10 @@
+         isEditable = b;
+     }
+ 
++    public void setMap(Map map){
++        this.map = map;
++    }
++
+     @Override
+     public void actionPerformed(ActionEvent e) {
+         Object source = e.getSource();
+@@ -54,6 +61,7 @@
+         if(name.equals("Electron tail")){
+             this.setBackground(Color.orange);
+             board.addTextLine("ElectronTail", i, j);
++            Structure n = new mapa.Diode(i * 40 + j,map, "Normal");
+         } else
+         if(name.equals("Conductor")){
+             this.setBackground(Color.yellow);
+Index: src/Graphic/Board.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Graphic;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.io.BufferedWriter;\r\nimport java.io.File;\r\nimport java.io.FileWriter;\r\nimport java.io.IOException;\r\n\r\npublic class Board extends JPanel implements ActionListener{\r\n\r\n    private final BoardSetting boardSetting;\r\n    protected SingleCell [][] cell = new SingleCell[51][51];\r\n    private final int rowsColws = 40;\r\n    private File temporary;\r\n    private FileWriter fw;\r\n\r\n    Board(BoardSetting setting){\r\n\r\n        createFile();\r\n\r\n        boardSetting = setting;\r\n        boardSetting.clear.addActionListener(this);\r\n\r\n        setPreferredSize(new Dimension(700,700));\r\n        setLayout(new GridLayout(rowsColws,rowsColws,1,1));\r\n        for(int i = 1; i <= rowsColws; i++){\r\n            for(int j = 1; j <= rowsColws; j++){\r\n                cell[i][j] = new SingleCell(cell, boardSetting, i, j, this);\r\n                cell[i][j].setBackground(Color.BLACK);\r\n                this.add(cell[i][j]);\r\n            }\r\n        }\r\n    }\r\n\r\n    public File getFile() {\r\n        return temporary;\r\n    }\r\n\r\n    public void update(int x, int a, int b){\r\n        if(x == 1)cell[a][b].setBackground(Color.BLUE);\r\n        else\r\n        if(x == 2)cell[a][b].setBackground(Color.orange);\r\n        else\r\n        if(x == 3)cell[a][b].setBackground(Color.yellow);\r\n        else\r\n        if(x == 0)cell[a][b].setBackground(Color.BLACK);\r\n\r\n        if(x != 0)cell[a][b].setEditable(false);\r\n    }\r\n\r\n    public int getRowsColws()\r\n    {\r\n        return rowsColws;\r\n    }\r\n\r\n    public void addTextLine(String s, int y, int x){\r\n        x = x - 1;\r\n        y = y - 1;\r\n        String a = s + \": \" + String.valueOf(x) + \", \"\r\n                + String.valueOf(y);\r\n        try {\r\n            fw = new FileWriter(temporary, true);\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n        BufferedWriter bw = new BufferedWriter(fw);\r\n        try {\r\n            bw.write(a);\r\n            bw.newLine();\r\n            bw.close();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void addTextLine(String s, int y, int x, String g){\r\n        x = x - 1;\r\n        y = y - 1;\r\n        String a = s + \": \" + String.valueOf(x) + \", \"\r\n                + String.valueOf(y) + \", \" + g;\r\n        try {\r\n            fw = new FileWriter(temporary, true);\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n        BufferedWriter bw = new BufferedWriter(fw);\r\n        try {\r\n            bw.write(a);\r\n            bw.newLine();\r\n            bw.close();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void clearBoard(){\r\n        boardSetting.clear.doClick();\r\n    }\r\n\r\n    private void createFile(){\r\n        try {\r\n            temporary = File.createTempFile(\"Temp-\",\".txt\");\r\n            temporary.deleteOnExit();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void actionPerformed(ActionEvent e) {\r\n        Object source = e.getSource();\r\n\r\n        if(source == boardSetting.clear){\r\n            for(int i = 1; i <= rowsColws; i++){\r\n                for(int j = 1; j <= rowsColws; j++){\r\n                    cell[i][j].setBackground(Color.BLACK);\r\n                    cell[i][j].setEditable(true);\r\n                }\r\n            }\r\n            createFile();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Graphic/Board.java b/src/Graphic/Board.java
+--- a/src/Graphic/Board.java	(revision 405888c5fd891f6e0b1f358bbb63319e861bda45)
++++ b/src/Graphic/Board.java	(date 1623255932892)
+@@ -1,5 +1,7 @@
+ package Graphic;
+ 
++import mapa.Map;
++
+ import javax.swing.*;
+ import java.awt.*;
+ import java.awt.event.ActionEvent;
+@@ -16,6 +18,7 @@
+     private final int rowsColws = 40;
+     private File temporary;
+     private FileWriter fw;
++    private Map map;
+ 
+     Board(BoardSetting setting){
+ 
+@@ -26,6 +29,7 @@
+ 
+         setPreferredSize(new Dimension(700,700));
+         setLayout(new GridLayout(rowsColws,rowsColws,1,1));
++
+         for(int i = 1; i <= rowsColws; i++){
+             for(int j = 1; j <= rowsColws; j++){
+                 cell[i][j] = new SingleCell(cell, boardSetting, i, j, this);
+@@ -35,6 +39,14 @@
+         }
+     }
+ 
++    public void setMap(Map map) {
++        for(int i = 1; i <= rowsColws; i++){
++            for(int j = 1; j <= rowsColws; j++){
++                cell[i][j].setMap(map);
++            }
++        }
++    }
++
+     public File getFile() {
+         return temporary;
+     }
+Index: src/Graphic/Frame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Graphic;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\n\r\npublic class Frame extends JFrame implements ActionListener{\r\n\r\n    private int[][] mapOfCells = new int[51][51];\r\n    protected LeftPanel leftPanel = new LeftPanel();\r\n    protected RightPanel rightPanel = new RightPanel();\r\n    private final Interface anInterface;\r\n\r\n    public Frame(Interface a) {\r\n        super(\"Wire World\");\r\n        anInterface = a;\r\n        setPreferredSize(new Dimension(1150, 750));\r\n        setLocation(0, 0);\r\n\r\n        setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));\r\n        add(leftPanel);\r\n        add(rightPanel);\r\n        leftPanel.runAll.addActionListener(this);\r\n        leftPanel.zatwierdzIteracje.addActionListener(this);\r\n        leftPanel.zatwierdzNazwePliku.addActionListener(this);\r\n        leftPanel.run1.addActionListener(this);\r\n        leftPanel.saveThisIteration.addActionListener(this);\r\n        leftPanel.acctual.addActionListener(this);\r\n\r\n        setVisible(true);\r\n        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        pack();\r\n    }\r\n\r\n    public void takeMap(int[][] tym){\r\n        this.mapOfCells = tym;\r\n    }\r\n\r\n    public void update(){\r\n        for(int i=1; i < rightPanel.board.getRowsColws(); i++)\r\n        {\r\n            for(int j = 1; j < rightPanel.board.getRowsColws(); j++)\r\n            {\r\n                rightPanel.board.update(mapOfCells[i][j],i ,j);\r\n            }\r\n        }\r\n    }\r\n\r\n    public String getFileName(){\r\n        return leftPanel.getNazwaPliku();\r\n    }\r\n\r\n    public int[][] getTym(){\r\n        return rightPanel.getBoard();\r\n    }\r\n\r\n    private void createEditedMap(){\r\n        for(int i = 1; i < rightPanel.board.getRowsColws(); i++){\r\n            for(int j = 1; j < rightPanel.board.getRowsColws(); j++){\r\n                mapOfCells[i][j] = rightPanel.getIntegerOfBoard(i,j);\r\n            }\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void actionPerformed(ActionEvent e) {\r\n        Object source = e.getSource();\r\n\r\n        if(source == leftPanel.run1){\r\n            anInterface.iterateBoard();\r\n        }\r\n\r\n        if (source == leftPanel.runAll) {\r\n            anInterface.iteratesBoard(leftPanel.getNumerIteracji());\r\n        }\r\n\r\n        if (source == leftPanel.zatwierdzNazwePliku){\r\n            anInterface.showMap(getFileName());\r\n        }\r\n\r\n        if(source == leftPanel.zatwierdzIteracje){\r\n            createEditedMap();\r\n        }\r\n\r\n        if(source == leftPanel.saveThisIteration){\r\n            anInterface.save();\r\n        }\r\n\r\n        if(source == leftPanel.acctual){\r\n            anInterface.actually(rightPanel.board.getFile());\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Graphic/Frame.java b/src/Graphic/Frame.java
+--- a/src/Graphic/Frame.java	(revision 405888c5fd891f6e0b1f358bbb63319e861bda45)
++++ b/src/Graphic/Frame.java	(date 1623265282628)
+@@ -33,26 +33,12 @@
+         pack();
+     }
+ 
+-    public void takeMap(int[][] tym){
+-        this.mapOfCells = tym;
+-    }
+-
+-    public void update(){
+-        for(int i=1; i < rightPanel.board.getRowsColws(); i++)
+-        {
+-            for(int j = 1; j < rightPanel.board.getRowsColws(); j++)
+-            {
+-                rightPanel.board.update(mapOfCells[i][j],i ,j);
+-            }
+-        }
+-    }
+-
+     public String getFileName(){
+         return leftPanel.getNazwaPliku();
+     }
+ 
+-    public int[][] getTym(){
+-        return rightPanel.getBoard();
++    public void takeMap(int[][] tym){
++        this.mapOfCells = tym;
+     }
+ 
+     private void createEditedMap(){
+@@ -63,6 +49,16 @@
+         }
+     }
+ 
++    public void update(){
++        for(int i=1; i < rightPanel.board.getRowsColws(); i++)
++        {
++            for(int j = 1; j < rightPanel.board.getRowsColws(); j++)
++            {
++                rightPanel.board.update(mapOfCells[i][j],i ,j);
++            }
++        }
++    }
++
+     @Override
+     public void actionPerformed(ActionEvent e) {
+         Object source = e.getSource();
+Index: src/Graphic/Interface.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Graphic;\r\n\r\nimport mapa.Map;\r\n\r\nimport java.io.*;\r\nimport java.util.Timer;\r\nimport java.util.TimerTask;\r\n\r\npublic class Interface {\r\n\r\n    private final Frame frame = new Frame(this);\r\n    private final Map m = new Map();\r\n    private File file;\r\n\r\n    public Interface() {\r\n        m.setColumn(frame.rightPanel.board.getRowsColws());\r\n        m.setRow(frame.rightPanel.board.getRowsColws());\r\n    }\r\n\r\n    public void showMap(String name) {\r\n        try {\r\n            m.setDim(name);\r\n            m.read(name);\r\n        } catch (IOException e) {\r\n            System.err.println(e.getMessage());\r\n        }\r\n        file = new File(name);\r\n        frame.takeMap(m.getmToInt());\r\n        frame.update();\r\n    }\r\n\r\n    public void iterateBoard(){\r\n        m.iterate();\r\n        frame.takeMap(m.getmToInt());\r\n        frame.update();\r\n    }\r\n\r\n    public void iteratesBoard(int it) {\r\n        Timer dataTimer = new Timer();\r\n        dataTimer.schedule(new TimerTask() {\r\n\r\n            public int ta = it;\r\n\r\n            @Override\r\n            public void run() {\r\n                m.iterate();\r\n                frame.takeMap(m.getmToInt());\r\n                frame.update();\r\n                ta--;\r\n                if(ta == 0){\r\n                    dataTimer.cancel();\r\n                    dataTimer.purge();\r\n                }\r\n            }\r\n        }, 0, 400);\r\n    }\r\n\r\n/*\r\n    public void updateMap(){\r\n        m.getIntToM(ramka.getTym());\r\n    }\r\n*/\r\n    public void save(){\r\n        try {\r\n            m.save(\"output.txt\");\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void actually(File temporary){\r\n\r\n        PrintWriter writer = null;\r\n        try {\r\n            writer = new PrintWriter(\"temporary.txt\");\r\n            writer.print(\"\");\r\n            writer.close();\r\n        } catch (FileNotFoundException e) {\r\n            e.printStackTrace();\r\n        }\r\n\r\n        String new_odp = \"temporary.txt\";\r\n        PrintWriter pw = null;\r\n        try {\r\n            pw = new PrintWriter(new_odp);\r\n            BufferedReader br = new BufferedReader(new FileReader(file.getAbsolutePath()));\r\n            String line = br.readLine();\r\n            while (line != null)\r\n            {\r\n                pw.println(line);\r\n                line = br.readLine();\r\n            }\r\n            br = new BufferedReader(new FileReader(temporary.getAbsolutePath()));\r\n            line = br.readLine();\r\n            while(line != null)\r\n            {\r\n                pw.println(line);\r\n                line = br.readLine();\r\n            }\r\n            pw.flush();\r\n            br.close();\r\n            pw.close();\r\n        } catch (FileNotFoundException e) {\r\n            e.printStackTrace();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n        showMapUpdate(new_odp);\r\n    }\r\n\r\n    private void showMapUpdate(String name) {\r\n        frame.rightPanel.board.clearBoard();\r\n        try {\r\n            m.setDim(name);\r\n            m.read(name);\r\n        } catch (IOException e) {\r\n            System.err.println(e.getMessage());\r\n        }\r\n        frame.takeMap(m.getmToInt());\r\n        frame.update();\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Graphic/Interface.java b/src/Graphic/Interface.java
+--- a/src/Graphic/Interface.java	(revision 405888c5fd891f6e0b1f358bbb63319e861bda45)
++++ b/src/Graphic/Interface.java	(date 1623255519927)
+@@ -15,11 +15,11 @@
+     public Interface() {
+         m.setColumn(frame.rightPanel.board.getRowsColws());
+         m.setRow(frame.rightPanel.board.getRowsColws());
++        frame.rightPanel.board.setMap(m);
+     }
+ 
+     public void showMap(String name) {
+         try {
+-            m.setDim(name);
+             m.read(name);
+         } catch (IOException e) {
+             System.err.println(e.getMessage());
+@@ -55,11 +55,6 @@
+         }, 0, 400);
+     }
+ 
+-/*
+-    public void updateMap(){
+-        m.getIntToM(ramka.getTym());
+-    }
+-*/
+     public void save(){
+         try {
+             m.save("output.txt");
+@@ -70,7 +65,7 @@
+ 
+     public void actually(File temporary){
+ 
+-        PrintWriter writer = null;
++        PrintWriter writer;
+         try {
+             writer = new PrintWriter("temporary.txt");
+             writer.print("");
+@@ -80,7 +75,7 @@
+         }
+ 
+         String new_odp = "temporary.txt";
+-        PrintWriter pw = null;
++        PrintWriter pw;
+         try {
+             pw = new PrintWriter(new_odp);
+             BufferedReader br = new BufferedReader(new FileReader(file.getAbsolutePath()));
+@@ -111,7 +106,6 @@
+     private void showMapUpdate(String name) {
+         frame.rightPanel.board.clearBoard();
+         try {
+-            m.setDim(name);
+             m.read(name);
+         } catch (IOException e) {
+             System.err.println(e.getMessage());
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"3e5e1075-8667-456e-a828-dafdd3295446\" name=\"Default Changelist\" comment=\"Zmiany w nazewnictwie kodu\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/wireworld/Graphic/Frame.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/wireworld/Graphic/LeftPanel.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/wireworld/Graphic/RightPanel.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/wireworld/mapa/AndNotGate.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/wireworld/mapa/Conductor.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/wireworld/mapa/Diode.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/wireworld/mapa/EORGate.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/wireworld/mapa/FlipFlop.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/wireworld/mapa/ORGate.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/wireworld/mapa/cell.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/wireworld/mapa/map.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/wireworld/mapa/structure.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Graphic/Board.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Graphic/Board.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Graphic/ElementsButtons/ElemenstAndNotGate.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementDiode.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementEORGate.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementFlipFlop.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementORGate.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementReverseAndNotGate.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementReverseDiode.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementReverseEORGate.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementReverseFlipFlop.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementReverseORGate.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Graphic/Interface.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Graphic/Interface.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Graphic/SingleCell.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Graphic/SingleCell.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Merge.Settings\">\r\n    <option name=\"BRANCH\" value=\"algorithm\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1sQoAgR60vEGAVZvfipUFHdyOq5\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/src/Graphic\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n    <property name=\"restartRequiresConfirmation\" value=\"false\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"configurable.group.tools\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\wyluk\\IdeaProjects\\wireworld#1\\src\\Graphic\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Y700\\IdeaProjects\\wireworld\\test\" />\r\n      <recent name=\"C:\\Users\\Y700\\IdeaProjects\\wireworld\\.idea\" />\r\n      <recent name=\"C:\\Users\\Y700\\IdeaProjects\\wireworld\\.idea\\codeStyles\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"Graphic\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"wireworld\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\"C:\\Users\\Y700\\Desktop\\pw\\2\\jimp2\\labs\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"Application\" factoryName=\"Application\">\r\n      <module name=\"wireworld\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\"C:\\Users\\Y700\\Desktop\\pw\\2\\jimp2\\labs\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"default\" type=\"Application\" factoryName=\"Application\" activateToolWindowBeforeRun=\"false\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"mapa.Main\" />\r\n      <module name=\"wireworld\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\"test\\diode1 10\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"ArquillianJUnit\" factoryName=\"\" nameIsGenerated=\"true\">\r\n      <option name=\"arquillianRunConfiguration\">\r\n        <value>\r\n          <option name=\"containerStateName\" value=\"\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Unnamed\" type=\"ScalaAmmoniteRunConfigurationType\" factoryName=\"Ammonite\">\r\n      <setting name=\"execName\" value=\"amm\" />\r\n      <setting name=\"fileName\" value=\"\" />\r\n      <setting name=\"scriptParameters\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Ammonite.Unnamed\" />\r\n      <item itemvalue=\"Application.default\" />\r\n      <item itemvalue=\"Application.Main\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"3e5e1075-8667-456e-a828-dafdd3295446\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1620814033260</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1620814033260</updated>\r\n      <workItem from=\"1620883250370\" duration=\"1116000\" />\r\n      <workItem from=\"1622044958946\" duration=\"2336000\" />\r\n      <workItem from=\"1622047346357\" duration=\"9571000\" />\r\n      <workItem from=\"1622102680286\" duration=\"1235000\" />\r\n      <workItem from=\"1622489937457\" duration=\"5000\" />\r\n      <workItem from=\"1622542989330\" duration=\"5286000\" />\r\n      <workItem from=\"1622562524715\" duration=\"3166000\" />\r\n      <workItem from=\"1622883942622\" duration=\"20938000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Dodanie klas, prototyp.\">\r\n      <created>1620851236238</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1620851236238</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Dodanie klas, prototyp. cd\">\r\n      <created>1620852980571</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1620852980571</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Dodanie klas, prototyp. cd2\">\r\n      <created>1620857139188</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1620857139188</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Grafika powinna działać\">\r\n      <created>1620861471275</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1620861471275</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Grafika powinna działać cd(pliki out)\">\r\n      <created>1620861494416</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1620861494416</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"GUI zrobione, wciąż są problemy z działaniem iteracji,&#10;W GUI dodałem możliwość dodawania własnych pól, można dodawać jeszcze się nie iterują, wybór pliku działa zatwierdzanie iteracji działa.\">\r\n      <created>1622059202399</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1622059202399</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Pewien błąd przy commicie\">\r\n      <created>1622059282959</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1622059282959</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Program nie działa poprawnie, wykonuje określoną liczbę iteracji ale nie pokazjue kolejnych tylko ostatnią, jest to błąd do poprawy\">\r\n      <created>1622062603719</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1622062603720</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Program wykonuje poprawnie daną liczbę iteracji\">\r\n      <created>1622544123621</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1622544123621</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Przyciski dodają konkretne emementy, wciąż brakuje opcji ich iteracji\">\r\n      <created>1622893590783</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1622893590783</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Zmiany w nazewnictwie kodu\">\r\n      <created>1622895156215</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1622895156215</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"12\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Dodanie klas, prototyp.\" />\r\n    <MESSAGE value=\"Dodanie klas, prototyp. cd\" />\r\n    <MESSAGE value=\"Dodanie klas, prototyp. cd2\" />\r\n    <MESSAGE value=\"Grafika powinna działać\" />\r\n    <MESSAGE value=\"Grafika powinna działać cd(pliki out)\" />\r\n    <MESSAGE value=\"GUI zrobione, wciąż są problemy z działaniem iteracji,&#10;W GUI dodałem możliwość dodawania własnych pól, można dodawać jeszcze się nie iterują, wybór pliku działa zatwierdzanie iteracji działa.\" />\r\n    <MESSAGE value=\"Pewien błąd przy commicie\" />\r\n    <MESSAGE value=\"Program nie działa poprawnie, wykonuje określoną liczbę iteracji ale nie pokazjue kolejnych tylko ostatnią, jest to błąd do poprawy\" />\r\n    <MESSAGE value=\"Program wykonuje poprawnie daną liczbę iteracji\" />\r\n    <MESSAGE value=\"Przyciski dodają konkretne emementy, wciąż brakuje opcji ich iteracji\" />\r\n    <MESSAGE value=\"Zmiany w nazewnictwie kodu\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Zmiany w nazewnictwie kodu\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 405888c5fd891f6e0b1f358bbb63319e861bda45)
++++ b/.idea/workspace.xml	(date 1623266713404)
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Zmiany w nazewnictwie kodu">
++    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Połączony kod: problem z zapisaem struktur po iteracji">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/Frame.class" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/LeftPanel.class" beforeDir="false" />
+@@ -16,16 +16,7 @@
+       <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/structure.class" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/Graphic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Board.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Graphic/ElementsButtons/ElemenstAndNotGate.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementDiode.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementEORGate.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementFlipFlop.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementORGate.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementReverseAndNotGate.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementReverseDiode.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementReverseEORGate.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementReverseFlipFlop.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Graphic/ElementsButtons/ElementReverseORGate.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Graphic/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Frame.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/Graphic/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Interface.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/Graphic/SingleCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/SingleCell.java" afterDir="false" />
+     </list>
+@@ -125,17 +116,6 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+-      <option name="arquillianRunConfiguration">
+-        <value>
+-          <option name="containerStateName" value="" />
+-        </value>
+-      </option>
+-      <option name="TEST_OBJECT" value="class" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+     <configuration name="Unnamed" type="ScalaAmmoniteRunConfigurationType" factoryName="Ammonite">
+       <setting name="execName" value="amm" />
+       <setting name="fileName" value="" />
+@@ -169,6 +149,7 @@
+       <workItem from="1622542989330" duration="5286000" />
+       <workItem from="1622562524715" duration="3166000" />
+       <workItem from="1622883942622" duration="20938000" />
++      <workItem from="1623265136279" duration="1167000" />
+     </task>
+     <task id="LOCAL-00001" summary="Dodanie klas, prototyp.">
+       <created>1620851236238</created>
+@@ -247,7 +228,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1622895156215</updated>
+     </task>
+-    <option name="localTasksCounter" value="12" />
++    <task id="LOCAL-00012" summary="Połączony kod: problem z zapisaem struktur po iteracji">
++      <created>1623252398872</created>
++      <option name="number" value="00012" />
++      <option name="presentableId" value="LOCAL-00012" />
++      <option name="project" value="LOCAL" />
++      <updated>1623252398872</updated>
++    </task>
++    <option name="localTasksCounter" value="13" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -277,6 +265,7 @@
+     <MESSAGE value="Program wykonuje poprawnie daną liczbę iteracji" />
+     <MESSAGE value="Przyciski dodają konkretne emementy, wciąż brakuje opcji ich iteracji" />
+     <MESSAGE value="Zmiany w nazewnictwie kodu" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Zmiany w nazewnictwie kodu" />
++    <MESSAGE value="Połączony kod: problem z zapisaem struktur po iteracji" />
++    <option name="LAST_COMMIT_MESSAGE" value="Połączony kod: problem z zapisaem struktur po iteracji" />
+   </component>
+ </project>
+\ No newline at end of file

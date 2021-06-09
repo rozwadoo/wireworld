@@ -13,25 +13,34 @@ public class Interface {
     private File file;
 
     public Interface() {
-        m.setColumn(frame.rightPanel.board.getRowsColws());
-        m.setRow(frame.rightPanel.board.getRowsColws());
+        getM().setColumn(frame.rightPanel.board.getRowsColws());
+        getM().setRow(frame.rightPanel.board.getRowsColws());
+
+        try {
+            PrintWriter writer = new PrintWriter("temporary.txt");
+            writer.print("");
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        
     }
 
     public void showMap(String name) {
         try {
-            m.setDim(name);
-            m.read(name);
+            getM().setDim(name);
+            getM().read(name);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
         file = new File(name);
-        frame.takeMap(m.getmToInt());
+        frame.takeMap(getM().getmToInt());
         frame.update();
     }
 
     public void iterateBoard(){
-        m.iterate();
-        frame.takeMap(m.getmToInt());
+        getM().iterate();
+        frame.takeMap(getM().getmToInt());
         frame.update();
     }
 
@@ -43,8 +52,8 @@ public class Interface {
 
             @Override
             public void run() {
-                m.iterate();
-                frame.takeMap(m.getmToInt());
+                getM().iterate();
+                frame.takeMap(getM().getmToInt());
                 frame.update();
                 ta--;
                 if(ta == 0){
@@ -55,14 +64,9 @@ public class Interface {
         }, 0, 400);
     }
 
-/*
-    public void updateMap(){
-        m.getIntToM(ramka.getTym());
-    }
-*/
     public void save(){
         try {
-            m.save("output.txt");
+            getM().save("output.txt", frame.rightPanel.board.getLoE() );
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -70,54 +74,54 @@ public class Interface {
 
     public void actually(File temporary){
 
-        PrintWriter writer = null;
-        try {
-            writer = new PrintWriter("temporary.txt");
-            writer.print("");
-            writer.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
         String new_odp = "temporary.txt";
-        PrintWriter pw = null;
+        PrintWriter pw;
+
         try {
+
             pw = new PrintWriter(new_odp);
             BufferedReader br = new BufferedReader(new FileReader(file.getAbsolutePath()));
             String line = br.readLine();
+
             while (line != null)
             {
                 pw.println(line);
                 line = br.readLine();
             }
+
             br = new BufferedReader(new FileReader(temporary.getAbsolutePath()));
             line = br.readLine();
+
             while(line != null)
             {
                 pw.println(line);
                 line = br.readLine();
             }
+
             pw.flush();
             br.close();
             pw.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         showMapUpdate(new_odp);
     }
 
     private void showMapUpdate(String name) {
-        frame.rightPanel.board.clearBoard();
         try {
-            m.setDim(name);
-            m.read(name);
+            getM().setDim(name);
+            getM().read(name);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
-        frame.takeMap(m.getmToInt());
+        frame.takeMap(getM().getmToInt());
         frame.update();
+    }
+
+    public Map getM() {
+        return m;
     }
 }
 

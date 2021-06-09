@@ -1,14 +1,12 @@
 package Graphic;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Dimension;
+import javax.swing.JPanel;
 
 
 public class BoardSetting extends JPanel{
-    protected BoardSettingButton clear = new BoardSettingButton("Clear", this);
 
-    private final BoardSettingButton black = new BoardSettingButton("Empty", this);
-    private final BoardSettingButton orange = new BoardSettingButton("Electron tail", this);
+    private final BoardSettingButton red = new BoardSettingButton("Electron tail", this);
     private final BoardSettingButton yellow = new BoardSettingButton("Conductor", this);
     private final BoardSettingButton blue = new BoardSettingButton("Electron head", this);
     private final BoardSettingButton andNotGate = new BoardSettingButton("AndNotGate", this);
@@ -24,10 +22,10 @@ public class BoardSetting extends JPanel{
     private String nameElement;
 
     public BoardSetting() {
+
         setPreferredSize(new Dimension(140,700));
-        add(clear);
-        add(black);
-        add(orange);
+
+        add(red);
         add(yellow);
         add(blue);
         add(andNotGate);

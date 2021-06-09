@@ -2,11 +2,13 @@ package mapa;
 
 public class FlipFlop extends Structure {
     public FlipFlop(int s, Map m, String lname) {
+
         setRow(11);
         setColumn(14);
         setName("FlipFlop");
         setLname(lname);
         setStart(s);
+
         switch (lname) {
             case "Normal":
                 for (int i = s - m.getColumn() * 4; i < s - m.getColumn() * 4 + 6; ++i) {
@@ -55,6 +57,13 @@ public class FlipFlop extends Structure {
                 }
                 break;
         }
-        m.LoE.put(getStart() , this);
+        m.getLoE().put(getStart() , this);
     }
+
+    public FlipFlop(int s, String lname) {
+        setName("Diode");
+        setLname(lname);
+        setStart(s);
+    }
+
 }

@@ -1,15 +1,15 @@
 package mapa;
 
-import java.io.File;
-import java.io.IOException;
-
 public class ORGate extends Structure {
+
     public ORGate(int s, Map m, String lname) {
+
         setRow(7);
         setColumn(14);
         setName("ORGate");
         setStart(s);
         setLname(lname);
+
         switch (lname) {
             case "Normal":
                 for (int i = s - m.getColumn() * 2; i < s - m.getColumn() * 2 + 7; ++i) {
@@ -38,6 +38,13 @@ public class ORGate extends Structure {
                 make(s + 6 + m.getColumn(), m);
                 break;
         }
-        m.LoE.put(getStart() , this);
+        m.getLoE().put(getStart() , this);
     }
+
+    public ORGate(int s, String lname) {
+        setName("Diode");
+        setLname(lname);
+        setStart(s);
+    }
+
 }

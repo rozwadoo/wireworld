@@ -1,6 +1,11 @@
 package Graphic;
 
-import Graphic.Element.*;
+import Graphic.Element.AndNotGate;
+import Graphic.Element.Diode;
+import Graphic.Element.EORGate;
+import Graphic.Element.ORGate;
+import Graphic.Element.FlipFlop;
+import mapa.Structure;
 
 import javax.swing.JButton;
 import java.awt.Color;
@@ -48,65 +53,84 @@ public class SingleCell extends JButton implements ActionListener {
     private void createElement(){
         String name = boardSetting.getNameElement();
 
-        if(name.equals("Empty")){
-            this.setBackground(Color.BLACK);
-        } else
-        if(name.equals("Electron tail")){
-            this.setBackground(Color.orange);
-            board.addTextLine("ElectronTail", i, j);
-        } else
-        if(name.equals("Conductor")){
-            this.setBackground(Color.yellow);
-            board.addTextLine("Conductor", i, j);
-        } else
-        if(name.equals("Electron head")){
-            this.setBackground(Color.BLUE);
-            board.addTextLine("ElectronHead", i, j);
-        } else
+        switch (name) {
+            case "Electron tail" -> {
+                this.setBackground(Color.RED);
+                board.addTextLine("ElectronTail", i, j);
+            }
+            case "Conductor" -> {
+                this.setBackground(Color.RED);
+                board.addTextLine("Conductor", i, j);
+            }
+            case "Electron head" -> {
+                this.setBackground(Color.BLUE);
+                board.addTextLine("ElectronHead", i, j);
+            }
 
-        if(name.equals("AndNotGate")){
-            new AndNotGate(cell, i -3, j).normal();
-            board.addTextLine("AndNotGate", i, j, "Normal");
-        } else
-        if(name.equals("R AndNotGate")){
-            new AndNotGate(cell, i - 3, j).normal();
-            board.addTextLine("AndNotGate", i, j, "Reversed");
-        } else
+            case "AndNotGate" -> {
+                new AndNotGate(cell, i - 3, j).normal();
+                board.addTextLine("AndNotGate", i, j, "Normal");
+                Structure n = new mapa.Diode(j * 50 + i + 1, "Normal");
+                board.getLoE().put(n.getStart(), n);
+            }
+            case "R AndNotGate" -> {
+                new AndNotGate(cell, i - 3, j).normal();
+                board.addTextLine("AndNotGate", i, j, "Reversed");
+                Structure n = new mapa.Diode(j * 50 + i + 1, "Reversed");
+                board.getLoE().put(n.getStart(), n);
+            }
 
-        if(name.equals("Diode")){
-            new Diode(cell, i - 1, j).normal();
-            board.addTextLine("Diode", i, j, "Normal");
-        } else
-        if(name.equals("R Diode")){
-            new Diode(cell, i - 1, j).reverse();
-            board.addTextLine("Diode", i, j, "Reversed");
-        } else
+            case "Diode" -> {
+                new Diode(cell, i - 1, j).normal();
+                board.addTextLine("Diode", i, j, "Normal");
+                Structure n = new mapa.Diode(j * 50 + i + 1, "Normal");
+                board.getLoE().put(n.getStart(), n);
+            }
+            case "R Diode" -> {
+                new Diode(cell, i - 1, j).reverse();
+                board.addTextLine("Diode", i, j, "Reversed");
+                Structure n = new mapa.Diode(j * 50 + i + 1, "Reversed");
+                board.getLoE().put(n.getStart(), n);
+            }
 
-        if(name.equals("EORGate")) {
-            new EORGate(cell, i -3, j).normal();
-            board.addTextLine("EORGate", i, j, "Normal");
-        } else
-        if(name.equals("R EORGate")) {
-            new EORGate(cell, i -3, j).reverse();
-            board.addTextLine("EORGate", i, j, "Reversed");
-        } else
+            case "EORGate" -> {
+                new EORGate(cell, i - 3, j).normal();
+                board.addTextLine("EORGate", i, j, "Normal");
+                Structure n = new mapa.EORGate(j * 50 + i + 1, "Normal");
+                board.getLoE().put(n.getStart(), n);
+            }
+            case "R EORGate" -> {
+                new EORGate(cell, i - 3, j).reverse();
+                board.addTextLine("EORGate", i, j, "Reversed");
+                Structure n = new mapa.EORGate(j * 50 + i + 1, "Reversed");
+                board.getLoE().put(n.getStart(), n);
+            }
 
-        if(name.equals("FlipFlop")) {
-            new FlipFlop(cell, i - 4, j).normal();
-            board.addTextLine("FlipFlop", i, j, "Normal");
-        } else
-        if(name.equals("R FlipFlop")) {
-            new FlipFlop(cell, i - 4, j).reverse();
-            board.addTextLine("FlipFlop", i, j, "Reversed");
-        } else
+            case "FlipFlop" -> {
+                new FlipFlop(cell, i - 4, j).normal();
+                board.addTextLine("FlipFlop", i, j, "Normal");
+                Structure n = new mapa.FlipFlop(j * 50 + i + 1, "Normal");
+                board.getLoE().put(n.getStart(), n);
+            }
+            case "R FlipFlop" -> {
+                new FlipFlop(cell, i - 4, j).reverse();
+                board.addTextLine("FlipFlop", i, j, "Reversed");
+                Structure n = new mapa.FlipFlop(j * 50 + i + 1, "Reversed");
+                board.getLoE().put(n.getStart(), n);
+            }
 
-        if(name.equals("ORGate")) {
-            new ORGate(cell, i - 2, j).normal();
-            board.addTextLine("ORGate", i, j, "Normal");
-        } else
-        if(name.equals("R ORGate")) {
-            new ORGate(cell, i - 2, j).reverse();
-            board.addTextLine("ORGate", i, j, "Reversed");
+            case "ORGate" -> {
+                new ORGate(cell, i - 2, j).normal();
+                board.addTextLine("ORGate", i, j, "Normal");
+                Structure n = new mapa.ORGate(j * 50 + i + 1, "Normal");
+                board.getLoE().put(n.getStart(), n);
+            }
+            case "R ORGate" -> {
+                new ORGate(cell, i - 2, j).reverse();
+                board.addTextLine("ORGate", i, j, "Reversed");
+                Structure n = new mapa.ORGate(j * 50 + i + 1, "Reversed");
+                board.getLoE().put(n.getStart(), n);
+            }
         }
     }
 }

@@ -1,15 +1,15 @@
 package mapa;
 
-import java.io.File;
-import java.io.IOException;
-
 public class Diode extends Structure {
+
     public Diode(int s, Map m, String lname) {
+
         setRow(7);
         setColumn(14);
         setName("Diode");
         setLname(lname);
         setStart(s);
+
         switch (lname) {
             case "Normal":
                 for (int i = s; i < s + 7; ++i) {
@@ -36,6 +36,12 @@ public class Diode extends Structure {
                 make(s + 7 + m.getColumn(), m);
                 break;
         }
-        m.LoE.put(getStart() , this);
+        m.getLoE().put(getStart() , this);
+    }
+
+    public Diode(int s, String lname) {
+        setName("Diode");
+        setLname(lname);
+        setStart(s);
     }
 }

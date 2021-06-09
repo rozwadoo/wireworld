@@ -1,0 +1,15 @@
+FlipFlop: 0, 6, Normal
+AndNotGate: 0, 15, Normal
+FlipFlop: 16, 10, Normal
+Conductor: 14, 15
+Conductor: 15, 15
+Conductor: 15, 6
+Conductor: 14, 6
+ElectronHead: 1, 2
+ElectronHead: 1, 10
+ElectronHead: 1, 12
+ElectronHead: 1, 18
+ElectronTail: 0, 2
+ElectronTail: 0, 10
+ElectronTail: 0, 12
+ElectronTail: 0, 18

@@ -1,6 +1,8 @@
 package mapa;
 
 public class Cell {
+
+    private Cell[] neighbours;
     private int state0;
     private int state1;
     private int position;
@@ -9,7 +11,6 @@ public class Cell {
         2 - tail
         3 - conductor
      */
-    private Cell[] neighbours;
 
     public Cell(int s0, int p ) {
         setState0(s0);
@@ -50,6 +51,7 @@ public class Cell {
     public void addN(int n, Cell c) {
             getNeighbours()[n] = c;
     }
+
     public void giveN(Map m) {
         for(int i = 0; i < 8; ++i) addN(i, m.getBoard().get(1));
         if(getPosition() > m.getColumn() && getPosition() % m.getColumn() != 1) addN(0, m.getBoard().get(this.getPosition()-m.getColumn()-1));
@@ -69,6 +71,7 @@ public class Cell {
         }
         return s;
     }
+
     public void generate(){
         if( this.state0 == 0) setState1(0);
         else if( this.state0 == 1) setState1(2);
@@ -76,9 +79,11 @@ public class Cell {
         else if( this.state0 == 3 && (this.count() == 1 || this.count() == 2)) setState1(1);
         else setState1(3);
     }
+
     public void update(){
         setState0(this.state1);
     }
+
     public boolean equals( Cell c ) {
         return c.getPosition() == this.getPosition();
     }

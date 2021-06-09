@@ -1,9 +1,5 @@
 package mapa;
 
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 public class Structure extends Map {
     private int start;
     private String name;
@@ -12,11 +8,13 @@ public class Structure extends Map {
     public int getStart() {
         return start;
     }
+
     {this.getStart();}
 
     public void setStart(int start) {
         this.start = start;
     }
+
     public void make(int n, Map m){
         getBoard().get(n).setState0(3);
         getBoard().get(n).giveN(m);

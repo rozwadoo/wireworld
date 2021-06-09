@@ -1,13 +1,15 @@
 package mapa;
 
 public class Conductor extends Structure {
+
     public Conductor(int s, Map m, String lname) {
         setName("Conductor");
         setLname(lname);
         setStart(s);
         make(s, m);
-        m.LoE.put(getStart() , this);
+        m.getLoE().put(getStart() , this);
     }
+
     public Conductor(int s, Map m, String lname, int n) {
         setName("Conductor");
         setLname(lname);
@@ -33,7 +35,7 @@ public class Conductor extends Structure {
                 }
                 break;
         }
-        m.LoE.put(getStart() , this);
+        m.getLoE().put(getStart() , this);
     }
 }
 

@@ -1,9 +1,11 @@
 import Graphic.Frame;
 import Graphic.Interface;
 import mapa.Map;
+import mapa.Structure;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class Main {
 

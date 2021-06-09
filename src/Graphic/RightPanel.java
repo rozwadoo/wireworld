@@ -1,7 +1,8 @@
 package Graphic;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.Dimension;
+import java.awt.Color;
 
 public class RightPanel extends JPanel {
 
@@ -19,7 +20,7 @@ public class RightPanel extends JPanel {
     public int getIntegerOfBoard(int a, int b){
         if(board.cell[a][b].getBackground() == Color.BLUE)return 1;
         else
-        if(board.cell[a][b].getBackground() == Color.ORANGE)return 2;
+        if(board.cell[a][b].getBackground() == Color.RED)return 2;
         else
         if(board.cell[a][b].getBackground() == Color.YELLOW)return 3;
         else

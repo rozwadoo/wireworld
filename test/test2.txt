@@ -1,0 +1,6 @@
+ORGate: 0, 10, Normal
+ORGate: 14, 10, Reversed
+ElectronHead: 2, 8
+ElectronHead: 1, 12
+ElectronTail: 1, 8
+ElectronTail: 0, 12
