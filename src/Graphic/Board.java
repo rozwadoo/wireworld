@@ -19,12 +19,7 @@ public class Board extends JPanel implements ActionListener{
 
     Board(BoardSetting setting){
 
-        try {
-            temporary = File.createTempFile("Temp-",".txt");
-            temporary.deleteOnExit();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        createFile();
 
         boardSetting = setting;
         boardSetting.clear.addActionListener(this);
@@ -61,6 +56,26 @@ public class Board extends JPanel implements ActionListener{
         return rowsColws;
     }
 
+    public void addTextLine(String s, int y, int x){
+        x = x - 1;
+        y = y - 1;
+        String a = s + ": " + String.valueOf(x) + ", "
+                + String.valueOf(y);
+        try {
+            fw = new FileWriter(temporary, true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+        try {
+            bw.write(a);
+            bw.newLine();
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void addTextLine(String s, int y, int x, String g){
         x = x - 1;
         y = y - 1;
@@ -85,6 +100,15 @@ public class Board extends JPanel implements ActionListener{
         boardSetting.clear.doClick();
     }
 
+    private void createFile(){
+        try {
+            temporary = File.createTempFile("Temp-",".txt");
+            temporary.deleteOnExit();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
@@ -96,6 +120,7 @@ public class Board extends JPanel implements ActionListener{
                     cell[i][j].setEditable(true);
                 }
             }
+            createFile();
         }
     }
 }
