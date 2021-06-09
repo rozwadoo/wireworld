@@ -8,11 +8,8 @@ public class Diode extends Structure {
         setRow(7);
         setColumn(14);
         setName("Diode");
-        setLname("Normal");
-        int auxc = m.getColumn() - 14;
-        for (int i = s - m.getColumn() * 3; i < s + m.getColumn() * 4; ++i) {
-            getBoard().put(i, new Cell(0, i));
-        }
+        setLname(lname);
+        setStart(s);
         switch (lname) {
             case "Normal":
                 for (int i = s; i < s + 7; ++i) {
@@ -39,5 +36,6 @@ public class Diode extends Structure {
                 make(s + 7 + m.getColumn(), m);
                 break;
         }
+        m.LoE.put(getStart() , this);
     }
 }

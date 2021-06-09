@@ -6,9 +6,7 @@ public class EORGate extends Structure {
         setColumn(14);
         setName("EORGate");
         setLname(lname);
-        for (int i = s - m.getColumn() * 4; i < s + m.getColumn() * 5; ++i) {
-            getBoard().put(i, new Cell(0, i));
-        }
+        setStart(s);
         switch(lname) {
             case "Normal":
                 for (int i = s - m.getColumn() * 3; i < s - m.getColumn() * 3 + 6; ++i) {
@@ -51,5 +49,6 @@ public class EORGate extends Structure {
                 make(s + m.getColumn() * 2 + 7, m);
                 break;
         }
+        m.LoE.put(getStart() , this);
     }
 }

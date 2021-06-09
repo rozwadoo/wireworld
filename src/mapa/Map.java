@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.HashMap;
 import java.util.TreeMap;
 
 public class Map {
@@ -11,6 +12,7 @@ public class Map {
     private int column;
     private static TreeMap<Integer, Cell> board = new TreeMap<>();
     private int[][] mToInt = new int[51][51];
+    HashMap<Integer, Structure> LoE = new HashMap<>();
 
 
     public Map(){
@@ -70,6 +72,7 @@ public class Map {
                         break;
                     case "ElectronHead":
                     case "ElectronTail":
+                    case "Conductor":
                         col = Math.max(col, Integer.parseInt(p[1].trim()) + 1);
                         row = Math.max(row, Integer.parseInt(p[2].trim()) + 1);
                 }
@@ -90,75 +93,42 @@ public class Map {
         while( (line= re.readLine()) != null ) {
             String [] p = line.split(":|\\,\\s*");
             try {
-                Map n;
+                Structure n;
+                String t = p.length > 3 ? p[3].trim() : "";
+                int h = 0;
+                if(getBoard().get(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn())).getState0() == 3) h = 1;
                 switch (p[0].trim()){
                     case "Diode":
-                        if(p[3].trim().equals("Normal")) {
-                            n = new Diode(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, "Normal");
-                        }
-                        else if(p[3].trim().equals("Reversed")){
-                            n = new Diode(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()),  this,"Reversed");
-                        }
-                        else break;
-                        for(int cl : n.board.keySet()) {
-                            if (n.board.get(cl).getState0() == 3) getBoard().get(cl).setState0(3);
-                        }
+                        n = new Diode(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, t);
                         break;
                     case "ORGate":
-                        if(p[3].trim().equals("Normal")) {
-                            n = new ORGate(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, "Normal");
-                        }
-                        else if(p[3].trim().equals("Reversed")) {
-                            n = new ORGate(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, "Reversed");
-                        }
-                        else break;
-                        for(int cl : n.board.keySet()) {
-                            if (n.board.get(cl).getState0() == 3) getBoard().get(cl).setState0(3);
-                        }
+                        n = new ORGate(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, t);
                         break;
                     case "FlipFlop":
-                        if(p[3].trim().equals("Normal")) {
-                            n = new FlipFlop(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, "Normal");
-                        }
-                        else if(p[3].trim().equals("Reversed")) {
-                            n = new FlipFlop(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, "Reversed");
-                        }
-                        else break;
-                        for(int cl : n.board.keySet()) {
-                            if (n.board.get(cl).getState0() == 3) getBoard().get(cl).setState0(3);
-                        }
+                        n = new FlipFlop(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, t);
                         break;
                     case "EORGate":
-                        if(p[3].trim().equals("Normal")) {
-                            n = new EORGate(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, "Normal");
-                        }
-                        else if(p[3].trim().equals("Reversed")) {
-                            n = new EORGate(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, "Reversed");
-                        }
-                        else break;
-                        for(int cl : n.board.keySet()) {
-                            if (n.board.get(cl).getState0() == 3) getBoard().get(cl).setState0(3);
-                        }
-                        break;
-                    case "ElectronHead":
-                        getBoard().get(Integer.parseInt(p[1].trim())+1+ Integer.parseInt(p[2].trim())*this.getColumn()).setState0(1);
-                        getBoard().get(Integer.parseInt(p[1].trim())+1+ Integer.parseInt(p[2].trim())*this.getColumn()).giveN(this);
-                        break;
-                    case "ElectronTail":
-                        getBoard().get(Integer.parseInt(p[1].trim())+1+ Integer.parseInt(p[2].trim())*this.getColumn()).setState0(2);
-                        getBoard().get(Integer.parseInt(p[1].trim())+1+ Integer.parseInt(p[2].trim())*this.getColumn()).giveN(this);
+                        n = new EORGate(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, t);
                         break;
                     case "AndNotGate":
-                        if(p[3].trim().equals("Normal")) {
-                            n = new AndNotGate(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, "Normal");
-                        }
-                        else if(p[3].trim().equals("Reversed")) {
-                            n = new AndNotGate(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, "Reversed");
-                        }
-                        else break;
-                        for(int cl : n.board.keySet()) {
-                            if (n.board.get(cl).getState0() == 3) getBoard().get(cl).setState0(3);
-                        }
+                        n = new AndNotGate(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, t);
+                        break;
+                    case "ElectronHead":
+                        n = new Conductor(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, t);
+                        getBoard().get(n.getStart()).setState0(1);
+                        getBoard().get(n.getStart()).giveN(this);
+                        if(h == 1) LoE.remove(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), n);
+                        break;
+                    case "ElectronTail":
+                        n = new Conductor(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, t);
+                        getBoard().get(n.getStart()).setState0(2);
+                        getBoard().get(n.getStart()).giveN(this);
+                        if(h == 1) LoE.remove(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), n);
+                        break;
+                    case "Conductor":
+                        n = new Conductor(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), this, t);
+                        getBoard().get(n.getStart()).giveN(this);
+                        if(h == 1) LoE.remove(Integer.parseInt(p[1].trim()) + 1 + (Integer.parseInt(p[2].trim()) * this.getColumn()), n);
                         break;
                 }
             } catch( ArrayIndexOutOfBoundsException|NumberFormatException e) {
@@ -166,29 +136,26 @@ public class Map {
             }
         }
     }
-    public void save(java.io.File f, String name) throws IOException {
-        BufferedReader r = new BufferedReader( new FileReader(f));
-        java.io.File file = new java.io.File("tmp.txt");
+    public void save(String name) throws IOException {
+        java.io.File file = new java.io.File(name);
         file.createNewFile();
         FileWriter fw = new FileWriter(file);
         BufferedWriter bw = new BufferedWriter(fw);
-        String line;
-        try {
-            while ((line = r.readLine()) != null) {
-                String [] p = line.split(":|\\,\\s*");
-                switch (p[0].trim()){
-                    case "ElectronHead":
-                        break;
-                    case "ElectronTail":
-                        break;
-                    default:
-                        bw.write(line + "\n");
-                        break;
-                }
+        for(HashMap.Entry<Integer, Structure> entry : LoE.entrySet()) {
+            Structure n =  entry.getValue();
+            Integer s = entry.getKey();
+            int ro;
+            int c;
+            if (s % getColumn() != 0) {
+                c = (s % getColumn()) - 1;
+                ro = (s - (s % getColumn())) / getColumn();
+            } else {
+                c = getColumn() - 1;
+                ro = s / getColumn() - 1;
             }
-        } catch (IOException e) {
-            System.err.println( e.getMessage());
+            bw.write(n.getName() + ": " + c + ", " + ro + ", " + n.getLname() + "\n");
         }
+
         for(int i = 1; i < this.getColumn()*this.getRow()+1; ++i) {
             int ro;
             int c;
@@ -208,12 +175,8 @@ public class Map {
                     break;
             }
         }
-        r.close();
         bw.flush();
         bw.close();
-        //f.delete();
-        Files.copy(Paths.get("tmp.txt"), Paths.get(name), StandardCopyOption.REPLACE_EXISTING);
-        file.delete();
     }
 
 

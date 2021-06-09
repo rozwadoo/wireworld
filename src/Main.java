@@ -1,12 +1,47 @@
 import Graphic.Frame;
 import Graphic.Interface;
+import mapa.Map;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
         Interface taka = new Interface();
+    }
+        //Frame ramka = new Frame();
+       /* Map m = new Map();
+
+
+        try {
+            m.setDim(args[0]);
+            m.read(args[0]);
+        } catch( IOException e) {
+            System.err.println(e.getMessage());
+        }
+
+
+        int it = Integer.parseInt(args[1]);
+
+        for (int i = 0; i <= it; ++i) {
+
+            m.iterate();
+
+        }
+        //System.out.println("col" + m.getColumn());
+        //System.out.println("row" + m.getRow());
+        //System.out.println("b" + m.getBoard().get(43).getState0() + " ");
+        File file=new File("test/diode1");
+        //File file=new File("test/output.txt");
+        m.save(file,"test/output1.txt" );
+        int [][] v = m.translate();
+        for (int j = 0; j < m.getRow(); ++j) {
+            for (int i = 0; i < m.getColumn(); ++i) {
+                System.out.printf("%d ", v[j][i]);
+            }
+            System.out.println("\n");
+        }
     }
     /*
         try {

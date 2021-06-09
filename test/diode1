@@ -1,2 +1,5 @@
 Diode: 0, 6, Normal
-Diode: 0, 12, Reversed
+EORGate: 20, 6, Reversed
+Conductor: 20, 20, VU
+ElectronHead: 1, 6
+ElectronHead: 0, 12

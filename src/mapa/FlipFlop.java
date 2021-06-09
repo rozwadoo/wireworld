@@ -6,10 +6,7 @@ public class FlipFlop extends Structure {
         setColumn(14);
         setName("FlipFlop");
         setLname(lname);
-        int auxc = m.getColumn() - getColumn();
-        for (int i = s - m.getColumn() * 5; i < s + m.getColumn() * 6; ++i) {
-            getBoard().put(i, new Cell(0, i));
-        }
+        setStart(s);
         switch (lname) {
             case "Normal":
                 for (int i = s - m.getColumn() * 4; i < s - m.getColumn() * 4 + 6; ++i) {
@@ -58,5 +55,6 @@ public class FlipFlop extends Structure {
                 }
                 break;
         }
+        m.LoE.put(getStart() , this);
     }
 }

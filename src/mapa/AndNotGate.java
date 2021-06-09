@@ -6,9 +6,7 @@ public class AndNotGate extends Structure {
         setColumn(14);
         setName("AndNotGate");
         setLname(lname);
-        for (int i = s - m.getColumn() * 4; i < s + m.getColumn() * 5; ++i) {
-            getBoard().put(i, new Cell(0, i));
-        }
+        setStart(s);
         switch(lname) {
             case "Normal":
                 for (int i = s - m.getColumn() * 3; i < s - m.getColumn() * 3 + 7; ++i) {
@@ -47,5 +45,6 @@ public class AndNotGate extends Structure {
                 make(s + m.getColumn() + 7, m);
                 break;
         }
+        m.LoE.put(getStart() , this);
     }
 }

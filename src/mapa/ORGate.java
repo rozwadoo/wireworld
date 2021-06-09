@@ -8,10 +8,8 @@ public class ORGate extends Structure {
         setRow(7);
         setColumn(14);
         setName("ORGate");
+        setStart(s);
         setLname(lname);
-        for (int i = s - m.getColumn() * 3; i < s + m.getColumn() * 4; ++i) {
-            getBoard().put(i, new Cell(0, i));
-        }
         switch (lname) {
             case "Normal":
                 for (int i = s - m.getColumn() * 2; i < s - m.getColumn() * 2 + 7; ++i) {
@@ -40,5 +38,6 @@ public class ORGate extends Structure {
                 make(s + 6 + m.getColumn(), m);
                 break;
         }
+        m.LoE.put(getStart() , this);
     }
 }

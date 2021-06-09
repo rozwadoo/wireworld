@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Zmiany w nazewnictwie kodu">
+    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="nowe struktury">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_06_2021_17_49_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_06_2021_17_49__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/Frame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/LeftPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/RightPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/AndNotGate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/Diode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/EORGate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/FlipFlop.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/ORGate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/cell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/Graphic/Frame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/LeftPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/Graphic/LeftPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/Graphic/RightPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/Graphic/RightPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/AndNotGate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/AndNotGate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/Diode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/Diode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/EORGate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/EORGate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/FlipFlop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/FlipFlop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/ORGate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/ORGate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/structure.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/BoardSettingButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/BoardSettingButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/wireworld/mapa/map.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphic/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Interface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/LeftPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/LeftPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/RightPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/RightPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/SingleCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/SingleCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/AndNotGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/AndNotGate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/Diode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Diode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/EORGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/EORGate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/FlipFlop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/FlipFlop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/ORGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/ORGate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Structure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/diode1" beforeDir="false" afterPath="$PROJECT_DIR$/test/diode1" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +90,20 @@
       <recent name="C:\Users\Y700\IdeaProjects\wireworld\.idea\codeStyles" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.default">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="wireworld" />
@@ -105,23 +120,10 @@
       </method>
     </configuration>
     <configuration name="default" type="Application" factoryName="Application" activateToolWindowBeforeRun="false">
-      <option name="MAIN_CLASS_NAME" value="mapa.Main" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="wireworld" />
       <option name="PROGRAM_PARAMETERS" value="test\diode1 10" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

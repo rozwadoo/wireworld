@@ -64,7 +64,7 @@ public class Interface {
 */
     public void save(){
         try {
-            m.save(file, file.getName() + "-odp.txt");
+            m.save("-odp.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }
