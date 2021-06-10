@@ -154,16 +154,8 @@ public class Map {
         }
         for(HashMap.Entry<Integer, Structure> entry : LoE.entrySet()) {
             Structure n =  entry.getValue();
-            Integer s = entry.getKey();
-            int ro;
-            int c;
-            if (s % getColumn() != 0) {
-                c = (s % getColumn()) - 1;
-                ro = (s - (s % getColumn())) / getColumn();
-            } else {
-                c = getColumn() - 1;
-                ro = s / getColumn() - 1;
-            }
+            int ro = n.getI() - 1;
+            int c = n.getJ() - 1;
             bw.write(n.getName() + ": " + c + ", " + ro + ", " + n.getLname() + "\n");
         }
 

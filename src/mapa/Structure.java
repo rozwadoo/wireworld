@@ -4,6 +4,8 @@ public class Structure extends Map {
     private int start;
     private String name;
     private String lname;
+    private int i;
+    private int j;
 
     public int getStart() {
         return start;
@@ -34,5 +36,21 @@ public class Structure extends Map {
 
     public void setLname(String lname) {
         this.lname = lname;
+    }
+
+    public int getI() {
+        return i;
+    }
+
+    public void setI(int i) {
+        this.i = i;
+    }
+
+    public int getJ() {
+        return j;
+    }
+
+    public void setJ(int j) {
+        this.j = j;
     }
 }

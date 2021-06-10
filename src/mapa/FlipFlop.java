@@ -61,9 +61,15 @@ public class FlipFlop extends Structure {
     }
 
     public FlipFlop(int s, String lname) {
-        setName("Diode");
+        setName("FlipFlop");
         setLname(lname);
         setStart(s);
+    }
+    public FlipFlop(int i, int j, String lname) {
+        setName("FlipFlop");
+        setLname(lname);
+        setI(i);
+        setJ(j);
     }
 
 }

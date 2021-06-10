@@ -56,5 +56,11 @@ public class AndNotGate extends Structure {
         setLname(lname);
         setStart(s);
     }
+    public AndNotGate(int i, int j, String lname) {
+        setName("AndNotGate");
+        setLname(lname);
+        setI(i);
+        setJ(j);
+    }
 
 }

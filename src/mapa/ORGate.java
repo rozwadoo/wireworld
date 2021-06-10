@@ -42,9 +42,15 @@ public class ORGate extends Structure {
     }
 
     public ORGate(int s, String lname) {
-        setName("Diode");
+        setName("ORGate");
         setLname(lname);
         setStart(s);
+    }
+    public ORGate(int i, int j, String lname) {
+        setName("ORGate");
+        setLname(lname);
+        setI(i);
+        setJ(j);
     }
 
 }

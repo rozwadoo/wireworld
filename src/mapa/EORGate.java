@@ -55,10 +55,11 @@ public class EORGate extends Structure {
         m.getLoE().put(getStart() , this);
     }
 
-    public EORGate(int s, String lname) {
-        setName("Diode");
+    public EORGate(int i, int j, String lname) {
+        setName("EORGate");
         setLname(lname);
-        setStart(s);
+        setI(i);
+        setJ(j);
     }
 
 }

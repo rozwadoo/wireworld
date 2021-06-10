@@ -70,65 +70,65 @@ public class SingleCell extends JButton implements ActionListener {
             case "AndNotGate" -> {
                 new AndNotGate(cell, i - 3, j).normal();
                 board.addTextLine("AndNotGate", i, j, "Normal");
-                Structure n = new mapa.Diode(j * 50 + i + 1, "Normal");
+                Structure n = new mapa.AndNotGate(i, j, "Normal");
                 board.getLoE().put(n.getStart(), n);
             }
             case "R AndNotGate" -> {
                 new AndNotGate(cell, i - 3, j).normal();
                 board.addTextLine("AndNotGate", i, j, "Reversed");
-                Structure n = new mapa.Diode(j * 50 + i + 1, "Reversed");
+                Structure n = new mapa.AndNotGate(i, j , "Reversed");
                 board.getLoE().put(n.getStart(), n);
             }
 
             case "Diode" -> {
                 new Diode(cell, i - 1, j).normal();
                 board.addTextLine("Diode", i, j, "Normal");
-                Structure n = new mapa.Diode(j * 50 + i + 1, "Normal");
-                board.getLoE().put(n.getStart(), n);
+                Structure n = new mapa.Diode(i, j, "Normal");
+                board.getLoE().put(n.getI(), n);
             }
             case "R Diode" -> {
                 new Diode(cell, i - 1, j).reverse();
                 board.addTextLine("Diode", i, j, "Reversed");
-                Structure n = new mapa.Diode(j * 50 + i + 1, "Reversed");
-                board.getLoE().put(n.getStart(), n);
+                Structure n = new mapa.Diode(i, j , "Reversed");
+                board.getLoE().put(n.getI(), n);
             }
 
             case "EORGate" -> {
                 new EORGate(cell, i - 3, j).normal();
                 board.addTextLine("EORGate", i, j, "Normal");
-                Structure n = new mapa.EORGate(j * 50 + i + 1, "Normal");
+                Structure n = new mapa.EORGate(i, j, "Normal");
                 board.getLoE().put(n.getStart(), n);
             }
             case "R EORGate" -> {
                 new EORGate(cell, i - 3, j).reverse();
                 board.addTextLine("EORGate", i, j, "Reversed");
-                Structure n = new mapa.EORGate(j * 50 + i + 1, "Reversed");
+                Structure n = new mapa.EORGate(i, j, "Reversed");
                 board.getLoE().put(n.getStart(), n);
             }
 
             case "FlipFlop" -> {
                 new FlipFlop(cell, i - 4, j).normal();
                 board.addTextLine("FlipFlop", i, j, "Normal");
-                Structure n = new mapa.FlipFlop(j * 50 + i + 1, "Normal");
+                Structure n = new mapa.FlipFlop(i, j, "Normal");
                 board.getLoE().put(n.getStart(), n);
             }
             case "R FlipFlop" -> {
                 new FlipFlop(cell, i - 4, j).reverse();
                 board.addTextLine("FlipFlop", i, j, "Reversed");
-                Structure n = new mapa.FlipFlop(j * 50 + i + 1, "Reversed");
+                Structure n = new mapa.FlipFlop(i, j, "Reversed");
                 board.getLoE().put(n.getStart(), n);
             }
 
             case "ORGate" -> {
                 new ORGate(cell, i - 2, j).normal();
                 board.addTextLine("ORGate", i, j, "Normal");
-                Structure n = new mapa.ORGate(j * 50 + i + 1, "Normal");
+                Structure n = new mapa.ORGate(i, j, "Normal");
                 board.getLoE().put(n.getStart(), n);
             }
             case "R ORGate" -> {
                 new ORGate(cell, i - 2, j).reverse();
                 board.addTextLine("ORGate", i, j, "Reversed");
-                Structure n = new mapa.ORGate(j * 50 + i + 1, "Reversed");
+                Structure n = new mapa.ORGate(i, j, "Reversed");
                 board.getLoE().put(n.getStart(), n);
             }
         }

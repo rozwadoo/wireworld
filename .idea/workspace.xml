@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Kosmetyka kodu + kilka testów">
+    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="nowy">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2021_16_12__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2021_16_12__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2021_21_25__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2021_21_25__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Interface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphic/SingleCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/SingleCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/AndNotGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/AndNotGate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/Diode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Diode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/EORGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/EORGate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/FlipFlop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/FlipFlop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mapa/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/ORGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/ORGate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapa/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Structure.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

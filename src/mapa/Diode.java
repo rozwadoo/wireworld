@@ -39,9 +39,10 @@ public class Diode extends Structure {
         m.getLoE().put(getStart() , this);
     }
 
-    public Diode(int s, String lname) {
+    public Diode(int i, int j, String lname) {
         setName("Diode");
         setLname(lname);
-        setStart(s);
+        setI(i);
+        setJ(j);
     }
 }
