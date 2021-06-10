@@ -1,33 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Zmiany w nazewnictwie kodu">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2021_16_12__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2021_16_12__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="3e5e1075-8667-456e-a828-dafdd3295446" name="Default Changelist" comment="Kosmetyka kodu + kilka testów">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/BoardSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/BoardSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/BoardSettingButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/BoardSettingButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/Element/AndNotGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Element/AndNotGate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/Element/Diode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Element/Diode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/Element/EORGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Element/EORGate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/Element/FlipFlop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Element/FlipFlop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/Element/ORGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Element/ORGate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/Elements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Elements.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphic/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Frame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphic/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/Interface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/LeftPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/LeftPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphic/RightPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/RightPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphic/SingleCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphic/SingleCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/AndNotGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/AndNotGate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/Conductor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Conductor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/Diode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Diode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/EORGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/EORGate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/FlipFlop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/FlipFlop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mapa/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/ORGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/ORGate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mapa/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapa/Structure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/diode1" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,19 +106,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Unnamed" type="ScalaAmmoniteRunConfigurationType" factoryName="Ammonite">
       <setting name="execName" value="amm" />
       <setting name="fileName" value="" />
@@ -174,6 +141,7 @@
       <workItem from="1622542989330" duration="5286000" />
       <workItem from="1622562524715" duration="3166000" />
       <workItem from="1622883942622" duration="20938000" />
+      <workItem from="1623300828249" duration="1242000" />
     </task>
     <task id="LOCAL-00001" summary="Dodanie klas, prototyp.">
       <created>1620851236238</created>
@@ -252,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622895156215</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Kosmetyka kodu + kilka testów">
+      <created>1623274012763</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1623274012763</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +257,7 @@
     <MESSAGE value="Program wykonuje poprawnie daną liczbę iteracji" />
     <MESSAGE value="Przyciski dodają konkretne emementy, wciąż brakuje opcji ich iteracji" />
     <MESSAGE value="Zmiany w nazewnictwie kodu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zmiany w nazewnictwie kodu" />
+    <MESSAGE value="Kosmetyka kodu + kilka testów" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kosmetyka kodu + kilka testów" />
   </component>
 </project>

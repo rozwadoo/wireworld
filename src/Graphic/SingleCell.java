@@ -59,7 +59,7 @@ public class SingleCell extends JButton implements ActionListener {
                 board.addTextLine("ElectronTail", i, j);
             }
             case "Conductor" -> {
-                this.setBackground(Color.RED);
+                this.setBackground(Color.YELLOW);
                 board.addTextLine("Conductor", i, j);
             }
             case "Electron head" -> {
